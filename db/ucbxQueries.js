@@ -5,9 +5,9 @@ const getUserById = "SELECT * FROM ucbxUsers WHERE id = ?;";
 const updateUser = "UPDATE ucbxUsers SET completed = true WHERE id = ?;";
 
 module.exports = {
-    insertUser,
-    getUsers,
-    deleteUserById,
-    getUserById,
-    updateUser
+  insertUser,
+  getUsers,
+  deleteUserById,
+  getUserById,
+  updateUser
 };
