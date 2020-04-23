@@ -1,6 +1,6 @@
 USE developer_db;
 
-INSERT INTO ucbxStrengths (title)
+INSERT INTO ucbxStrengths (Subjects)
 VALUES("HTML-GIT-CSS"),
         ("CSS-Bootstrap"),
         ("JavaScript"),
@@ -16,7 +16,7 @@ VALUES("HTML-GIT-CSS"),
         ("State");
         
 
-INSERT INTO  ucbxWeakness (title)
+INSERT INTO  ucbxWeakness (Subjects)
 VALUES("HTML-GIT-CSS"),
         ("CSS-Bootstrap"),
         ("JavaScript"),

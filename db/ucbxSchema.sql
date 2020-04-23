@@ -18,10 +18,12 @@ PRIMARY KEY (id)
 
 CREATE TABLE ucbxStrengths (
     id INT AUTO_INCREMENT NOT NULL,
-    title VARCHAR (50) NOT NULL,
+    subjects VARCHAR (50) NOT NULL,
+    PRIMARY KEY (id)
 );
 
 Create TABLE ucbxWeakness (
     id INT AUTO_INCREMENT NOT NULL,
-    title VARCHAR (50) NOT NULL,
+    subjects VARCHAR (50) NOT NULL,
+    PRIMARY KEY (id)
 );
