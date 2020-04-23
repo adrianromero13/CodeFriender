@@ -2,21 +2,19 @@ import React from "react";
 // import Counter from './../../components/Counter';]\
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-import TodoForm from "../../containers/TodoForm";
-import TodoListItem from '../../containers/TodoListItem';
-import Counter from "../../containers/Counter";
-import Comments from "../../containers/Comments";
-import Navbar from './../Navbar';
+// import 'semantic-ui-css/semantic.min.css'
 
+import FormExampleFieldControlId from './../InputForm';
 const App = props => (
-  <Router>
-    <div className="container">
-      <Navbar/>
-      <Counter/>
-      <Route exact path="/" component={TodoForm}/>
-      <Route exact path="/comments" component={Comments}/>
-      <Route exact path="/todos/:todoId" component={TodoListItem}/>  
-    </div>
-  </Router>
+  <FormExampleFieldControlId/>
+  // <Router>
+  //   <div className="container">
+      
+    
+  //     <Route exact path="/" component={TodoForm}/>
+  //     <Route exact path="/comments" component={Comments}/>
+  //     <Route exact path="/todos/:todoId" component={TodoListItem}/>  
+  //   </div>
+  // </Router>
 );
 export default App;
