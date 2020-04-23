@@ -1,5 +1,6 @@
-import React from 'react'
-import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+import React, { Component } from 'react';
+import axios from 'axios';
+import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min.css'
 
 
@@ -35,71 +36,100 @@ const Weakness1 = [
   { key: '13', text: 'State', value: 'State' },
 ];
 
-const UserForm= () => (
-  <Form>
-    <Form.Group widths='equal'>
-      <Form.Field
-        id='form-input-control-first-name'
-        control={Input}
-        label='First name'
-        placeholder='First name'
-      />
-      <Form.Field
-        id='form-input-control-last-name'
-        control={Input}
-        label='Last name'
-        placeholder='Last name'
-      />
-      <Form.Field
-        control={Select}
-        options={Strength1}
-        label={{ children: 'Strength', htmlFor: 'form-select-control-strength' }}
-        placeholder='Strength'
-        search
-        searchInput={{ id: 'form-select-control-strength' }}
-      />
-      <Form.Field
-        control={Select}
-        options={Weakness1}
-        label={{ children: 'Weakness', htmlFor: 'form-select-control-weakness' }}
-        placeholder='Weakness'
-        search
-        searchInput={{ id: 'form-select-control-weakness' }}
-      />
-    </Form.Group>
-    <Form.Field
-      id='form-textarea-control-bio'
-      control={TextArea}
-      label='Bio'
-      placeholder='Write a short description'
-    />
-    <Form.Field
-      id='form-input-control-error-email'
-      control={Input}
-      label='Email'
-      placeholder='joey@fullstack.com'
-      // error={{
-      //   content: 'Please enter a valid email address',
-      //   pointing: 'above',
-      // }}
-    />
-    <Form.Field
-      id='form-input-control-error-github'
-      control={Input}
-      label='Github Username'
-      placeholder='janey123'
-      // error={{
-      //   content: 'Please enter a valid Github username',
-      //   pointing: 'above',
-      // }}
-    />
-    <Form.Field
-      id='form-button-control-public'
-      control={Button}
-      content='Submit'
-      label='Click to Submit'
-    />
-  </Form>
-)
+
+class UserForm extends Component {
+  state = {
+    FirstName:"",
+    LastName:"",
+    strength:"",
+    weakness:"",
+    bio:"",
+    email:"",
+    github:"",
+
+  };
+
+  handleSubmit = (e) => {
+    e.preventDefault();
+    console.log("I happened");
+    // The second parameter to this post request is going to become req.body
+    // axios.post('/api/todos', {title: this.state.input }).then(res => {
+    //   this.setState({ todos: res.data, input: "" });
+    // });
+  };
+
+  render(){
+    return(
+      <div>
+        <Form>
+        <Form.Group widths='equal'>
+          <Form.Field
+            id='form-input-control-first-name'
+            control={Input}
+            label='First name'
+            placeholder='First name'
+          />
+          <Form.Field
+            id='form-input-control-last-name'
+            control={Input}
+            label='Last name'
+            placeholder='Last name'
+          />
+          <Form.Field
+            control={Select}
+            options={Strength1}
+            label={{ children: 'Strength', htmlFor: 'form-select-control-strength' }}
+            placeholder='Strength'
+            search
+            searchInput={{ id: 'form-select-control-strength' }}
+          />
+          <Form.Field
+            control={Select}
+            options={Weakness1}
+            label={{ children: 'Weakness', htmlFor: 'form-select-control-weakness' }}
+            placeholder='Weakness'
+            search
+            searchInput={{ id: 'form-select-control-weakness' }}
+          />
+        </Form.Group>
+        <Form.Field
+          id='form-textarea-control-bio'
+          control={TextArea}
+          label='Bio'
+          placeholder='Write a short description'
+        />
+        <Form.Field
+          id='form-input-control-error-email'
+          control={Input}
+          label='Email'
+          placeholder='joey@fullstack.com'
+          // error={{
+          //   content: 'Please enter a valid email address',
+          //   pointing: 'above',
+          // }}
+        />
+        <Form.Field
+          id='form-input-control-error-github'
+          control={Input}
+          label='Github Username'
+          placeholder='janey123'
+          // error={{
+          //   content: 'Please enter a valid Github username',
+          //   pointing: 'above',
+          // }}
+        />
+        <Form.Field
+          id='form-button-control-public'
+          control={Button}
+          content='Submit'
+          label='Click to Submit'
+          onClick={this.handleSubmit}
+        />
+        </Form>
+      </div>
+    )
+  };
+};
+
 
 export default UserForm;

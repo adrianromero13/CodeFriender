@@ -1,20 +1,19 @@
 const router = require('express').Router();
 
-const todosController = require('../../../controllers/dbController');
+const dbController = require('../../../controllers/dbController');
 // /api/todos prepended to every route
 
 
 
 router.route('/')
-    .get(todosController.getTodos)
-    .post(todosController.insertTodo);
+    .get(dbController.getUsers)
+    .post(dbController.insertUser);
 
 
-router.route('/:todoId')
-    .delete(todosController.deleteTodoById)
-    .get(todosController.getTodoById)
-    .patch(todosController.updateTodoTitleById);
-
+router.route('/:userId')
+    .delete(dbController.deleteUserById)
+    .get(dbController.getUserById)
+    .patch(dbController.updateUser);
 
 
  // when you want to update more than 1 property in an object
