@@ -5,24 +5,23 @@ CREATE DATABASE developer_db;
 
 USE developer_db;
 
-CREATE TABLE ucbx (
+CREATE TABLE ucbxUsers (
 id INTEGER NOT NULL AUTO_INCREMENT,
-first_name VARCHAR (50) NULL,
-last_name VARCHAR (50) NULL,
-email VARCHAR (50) NULL,
-github VARCHAR (50) NULL,
-strengthID INT (10) NULL,
-weaknessID INT (10) NULL,
+first_name VARCHAR (50) NOT NULL,
+last_name VARCHAR (50) NOT NULL,
+email VARCHAR (50) NOT NULL,
+github VARCHAR (50) NOT NULL,
+strengthID INT (10) NOT NULL,
+weaknessID INT (10) NOT NULL,
 PRIMARY KEY (id)
 );
 
 CREATE TABLE ucbxStrengths (
-    id INT AUTO_INCREMENENT NOT NULL,
-    course VARCHAR (50) NULL,
+    id INT AUTO_INCREMENT NOT NULL,
+    title VARCHAR (50) NOT NULL,
 );
 
 Create TABLE ucbxWeakness (
     id INT AUTO_INCREMENT NOT NULL,
-    course VARCHAR (50) NOT NULL,
-    CREATE TABLE ucbxTables (
+    title VARCHAR (50) NOT NULL,
 );
