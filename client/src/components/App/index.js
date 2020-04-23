@@ -2,11 +2,12 @@ import React from "react";
 // import Counter from './../../components/Counter';]\
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
-// import 'semantic-ui-css/semantic.min.css'
 
-import FormExampleFieldControlId from './../InputForm';
+import UserForm from './../UserForm';
 const App = props => (
-  <FormExampleFieldControlId/>
+  <div className="container">
+    <UserForm/>
+  </div>
   // <Router>
   //   <div className="container">
       

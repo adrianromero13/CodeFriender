@@ -1,5 +1,7 @@
 import React from 'react'
 import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react'
+// import 'semantic-ui-css/semantic.min.css'
+
 
 const Strength1 = [
   { key: '1', text: 'HTML-GIT-CSS', value: 'HTML-GIT-CSS' },
@@ -33,7 +35,7 @@ const Weakness1 = [
   { key: '13', text: 'State', value: 'State' },
 ];
 
-const FormExampleFieldControlId = () => (
+const UserForm= () => (
   <Form>
     <Form.Group widths='equal'>
       <Form.Field
@@ -51,22 +53,22 @@ const FormExampleFieldControlId = () => (
       <Form.Field
         control={Select}
         options={Strength1}
-        label={{ children: 'Strength', htmlFor: 'form-select-control-gender' }}
+        label={{ children: 'Strength', htmlFor: 'form-select-control-strength' }}
         placeholder='Strength'
         search
-        searchInput={{ id: 'form-select-control-gender' }}
+        searchInput={{ id: 'form-select-control-strength' }}
       />
       <Form.Field
         control={Select}
         options={Weakness1}
-        label={{ children: 'Weakness', htmlFor: 'form-select-control-gender' }}
+        label={{ children: 'Weakness', htmlFor: 'form-select-control-weakness' }}
         placeholder='Weakness'
         search
-        searchInput={{ id: 'form-select-control-gender' }}
+        searchInput={{ id: 'form-select-control-weakness' }}
       />
     </Form.Group>
     <Form.Field
-      id='form-textarea-control-opinion'
+      id='form-textarea-control-bio'
       control={TextArea}
       label='Bio'
       placeholder='Write a short description'
@@ -82,7 +84,7 @@ const FormExampleFieldControlId = () => (
       // }}
     />
     <Form.Field
-      id='form-input-control-last-name'
+      id='form-input-control-error-github'
       control={Input}
       label='Github Username'
       placeholder='janey123'
@@ -94,10 +96,10 @@ const FormExampleFieldControlId = () => (
     <Form.Field
       id='form-button-control-public'
       control={Button}
-      content='Confirm'
-      label='Label with htmlFor'
+      content='Submit'
+      label='Click to Submit'
     />
   </Form>
 )
 
-export default FormExampleFieldControlId;
+export default UserForm;
