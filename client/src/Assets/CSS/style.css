@@ -1,16 +1,15 @@
-#root {
+/* #root {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-}
+} */
 
-footer {
+/* footer {
 
     position: fixed;;
     left: 0;
     bottom: 0;
-    width: auto;
     background-color: red;
     color: white;
     text-align: center;
-};
+};  */
