@@ -43,10 +43,9 @@ class UserForm extends Component {
     lastName: "",
     strength: "",
     weakness: "",
-    bio: "",
+    // bio: "",
     email: "",
     github: "",
-
   };
 
   handleInputChange = (e, data) => {
@@ -60,24 +59,28 @@ class UserForm extends Component {
   };
 
   handleSubmit = (e) => {
-    e.preventDefault();
-    console.log("I happened");
-    console.log(this.state);
-    this.setState({
-      firstName: "",
-      lastName: "",
-      strength: "",
-      weakness: "",
-      bio: "",
-      email: "",
-      github: "",
-    });
-
-
-    // The second parameter to this post request is going to become req.body
-    //   axios.post('/api/todos', {this.state }).then(res => {
-    //     this.setState({ [name]: "" });
-    //   });
+      e.preventDefault();
+      console.log("I happened");
+      console.log(this.state);
+       // The second parameter to this post request is going to become req.body
+        axios.post('/api/ucbxUsers', { 
+        firstName: this.state.firstName,
+        lastName: this.state.lastName,
+        strength: this.state.strength,
+        weakness: this.state.weakness,
+        // bio: this.state.bio,
+        email: this.state.email,
+        github: this.state.github})
+        
+        .then(res => this.setState({
+          firstName: "",
+          lastName: "",
+          strength: "",
+          weakness: "",
+          // bio: "",
+          email: "",
+          github: "",
+        }))
   };
 
   render() {
@@ -126,7 +129,7 @@ class UserForm extends Component {
               name='weakness'
             />
           </Form.Group>
-          <Form.Field
+          {/* <Form.Field
             id='form-textarea-control-bio'
             name="bio"
             control={TextArea}
@@ -134,7 +137,7 @@ class UserForm extends Component {
             placeholder='Write a short description'
             onChange={this.handleInputChange}
             value={this.state.bio}
-          />
+          /> */}
           <Form.Field
             id='form-input-control-error-email'
             control={Input}
