@@ -11,7 +11,9 @@ module.exports = {
       return res.json(ucbxUsers);
     });
   },
+
   insertUser: (req, res) => {
+    console.log('im hit');
     const { title } = req.body;
     connection.query(ucbxQueries.insertUser, title, (insertErr) => {
       if (insertErr) {
@@ -25,6 +27,7 @@ module.exports = {
       });
     });
   },
+  
   deleteUserById: (req, res) => {
     const { ucbxUserId } = req.params;
     connection.query(ucbxQueries.deleteUserById, parseInt(ucbxUserId, 16), (err) => {

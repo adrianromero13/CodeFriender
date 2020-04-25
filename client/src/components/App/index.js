@@ -8,11 +8,12 @@ import Footer from './../Footer';
 
 
 const App = props => (
-  <div className="container">
+  <Router>
     <Banner/>
-    <UserForm/>
+    <Route exact path="/" component={UserForm}/>
     <Footer/>
-  </div>
+  </Router>
+  
   // <Router>
   //   <div className="container">
       

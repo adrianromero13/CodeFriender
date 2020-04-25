@@ -4,7 +4,7 @@ import React from 'react';
 
 const Footer = () => (
     // <footer className="ui block footer">nerdGang LLC 2020</footer>
-    <footer className="ui block footer fluid" className= "footer">
+    <footer className="ui block footer fluid">
     Code Friender
     </footer>
 
