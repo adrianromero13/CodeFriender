@@ -43,7 +43,7 @@ class UserForm extends Component {
     lastName: "",
     strength: "",
     weakness: "",
-    // bio: "",
+    bio: "",
     email: "",
     github: "",
   };
@@ -68,7 +68,7 @@ class UserForm extends Component {
         lastName: this.state.lastName,
         strength: this.state.strength,
         weakness: this.state.weakness,
-        // bio: this.state.bio,
+        bio: this.state.bio,
         email: this.state.email,
         github: this.state.github})
         
@@ -77,7 +77,7 @@ class UserForm extends Component {
           lastName: "",
           strength: "",
           weakness: "",
-          // bio: "",
+          bio: "",
           email: "",
           github: "",
         }))
@@ -129,7 +129,7 @@ class UserForm extends Component {
               name='weakness'
             />
           </Form.Group>
-          {/* <Form.Field
+          <Form.Field
             id='form-textarea-control-bio'
             name="bio"
             control={TextArea}
@@ -137,7 +137,7 @@ class UserForm extends Component {
             placeholder='Write a short description'
             onChange={this.handleInputChange}
             value={this.state.bio}
-          /> */}
+          />
           <Form.Field
             id='form-input-control-error-email'
             control={Input}
