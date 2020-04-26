@@ -125,6 +125,7 @@ class UserForm extends Component {
               placeholder='Weakness'
               search
               searchInput={{ id: 'form-select-control-weakness' }}
+              value={this.state.weakness}
               onChange={this.handleInputChange}
               name='weakness'
             />
