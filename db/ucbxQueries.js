@@ -1,4 +1,4 @@
-const insertUser = 'INSERT INTO ucbxUsers (first_name, last_name, email, github, strengthID, weaknessID) VALUES (?,?,?,?,?,?);';
+const insertUser = 'INSERT INTO ucbxusers (first_name, last_name, strength, weakness, bio, email, github) VALUES (?,?,?,?,?,?,?);';
 
 const getUsers = 'SELECT * FROM ucbxUsers;';
 const deleteUserById = 'DELETE FROM ucbxUsers WHERE id = ?;';

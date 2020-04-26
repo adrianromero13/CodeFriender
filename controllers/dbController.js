@@ -14,8 +14,15 @@ module.exports = {
 
   insertUser: (req, res) => {
     console.log('im hit');
-    const { title } = req.body;
-    connection.query(ucbxQueries.insertUser, title, (insertErr) => {
+
+    connection.query(ucbxQueries.insertUser,
+      [req.body.firstName,
+        req.body.lastName,
+        req.body.strength,
+        req.body.weakness,
+        req.body.bio,
+        req.body.email,
+        req.body.github] , (insertErr) => {
       if (insertErr) {
         throw insertErr;
       }
@@ -25,6 +32,7 @@ module.exports = {
         }
         return res.json(ucbxUsers);
       });
+      // console.log(ucbxUsers);
     });
   },
   
