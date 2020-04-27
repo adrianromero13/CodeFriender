@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Form, Input, TextArea, Button, Select, Container } from 'semantic-ui-react';
+import { Form, Input, TextArea, Button, Select } from 'semantic-ui-react';
 // import 'semantic-ui-css/semantic.min.css'
 
 
@@ -87,7 +87,6 @@ class UserForm extends Component {
     console.log(this.state)
     return (
       <div>
-      <Container textAlign="justified">
         <Form>
           <Form.Group widths='equal'>
             <Form.Field
@@ -174,7 +173,6 @@ class UserForm extends Component {
             onClick={this.handleSubmit}
           />
         </Form>
-        </Container>
       </div>
     )
   };
