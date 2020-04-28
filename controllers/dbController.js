@@ -13,7 +13,7 @@ module.exports = {
   },
 
   insertUser: (req, res) => {
-    console.log('im hit');
+    console.log('he shoots...he scores!!!!');
 
     connection.query(ucbxQueries.insertUser,
       [req.body.firstName,
