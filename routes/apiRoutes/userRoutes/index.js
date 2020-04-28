@@ -14,6 +14,7 @@ router.route('/:userId')
   .patch(dbController.updateUser);
 
 
+
 // when you want to update more than 1 property in an object
 
 // PATCH  when you only want to update 1 property in an object
