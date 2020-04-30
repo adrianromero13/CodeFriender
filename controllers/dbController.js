@@ -54,15 +54,6 @@ module.exports = {
       return res.json({ success: true });
     });
   },
-  getUsers: (req, res) => {
-    const { ucbxUserId } = req.params;
-    connection.query(ucbxQueries.getUsers, parseInt(ucbxUserId, 16), (err, ucbxUsers) => {
-      if (err) {
-        return res.json(err);
-      }
-      return res.json(ucbxUsers[0]);
-    });
-  },
   updateUser: (req, res) => {
     const { ucbxUserId } = req.params;
     const { title } = req.body;

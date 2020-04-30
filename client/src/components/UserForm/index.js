@@ -173,6 +173,20 @@ class UserForm extends Component {
             label='Click to Submit'
             onClick={this.handleSubmit}
           />
+          {/* <Form.Field
+            id='form-button-control-public'
+            control={Button}
+            content='Prev'
+            label='Click to see previous'
+            onClick={this.handleSubmit}
+          />
+          <Form.Field
+            id='form-button-control-public'
+            control={Button}
+            content='Next'
+            label='Click to see next'
+            onClick={this.handleSubmit}
+          /> */}
         </Form>
         </Container>
       </div>
