@@ -8,7 +8,7 @@ router.route('/')
   .post(dbController.insertUser);
 
 
-router.route('/:userId')
+router.route('/:ucbxuserId')
   .delete(dbController.deleteUserById)
   .get(dbController.getUserById)
   .patch(dbController.updateUser);
