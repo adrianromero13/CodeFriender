@@ -1,11 +1,11 @@
 import React from "react";
-// import Counter from './../../components/Counter';]\
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Banner from './../Banner';
 import UserForm from './../UserForm';
 import Footer from './../Footer';
 import UserCard from './../UserCard';
 // import Users from './../RenderCards';
+// import Match from './../Match';
 
 
 
@@ -16,7 +16,7 @@ const App = props => (
     <Banner/>
     <Route exact path="/" component={UserForm}/>
     <Route exact path="/profile" component={UserCard}/>
-    {/* <Route exact path ="/users" component={Users}/> */}
+  
     <Footer/>
   </Router>
   
