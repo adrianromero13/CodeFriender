@@ -14,6 +14,7 @@ weakness VARCHAR (100) NOT NULL,
 bio VARCHAR (500) NOT NULL,
 email VARCHAR (50) NOT NULL,
 github VARCHAR (50) NOT NULL,
+badge VARCHAR (200),
 PRIMARY KEY (id)
 );
 

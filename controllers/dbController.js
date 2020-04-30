@@ -1,6 +1,6 @@
 const connection = require('../config/connection');
 const ucbxQueries = require('../db/ucbxQueries');
-
+const axios = require ('axios');
 
 module.exports = {
   getUsers: (req, res) => {
@@ -12,28 +12,39 @@ module.exports = {
     });
   },
 
-  insertUser: (req, res) => {
+  insertUser: async (req, res) => {
     console.log('he shoots...he scores!!!!');
-
-    connection.query(ucbxQueries.insertUser,
-      [req.body.firstName,
+    try {
+      let gitData = await axios.get(`https://api.github.com/users/${req.body.github}`)
+      console.log(gitData);
+      
+      let userValues = [req.body.firstName,
         req.body.lastName,
         req.body.strength,
         req.body.weakness,
         req.body.bio,
         req.body.email,
-        req.body.github] , (insertErr) => {
-      if (insertErr) {
-        throw insertErr;
-      }
-      connection.query(ucbxQueries.getUsers, (err, ucbxUsers) => {
-        if (err) {
-          throw err;
+        req.body.github,
+        gitData.data.avatar_url];
+
+      console.log(userValues);
+        
+      connection.query(ucbxQueries.insertUser,
+        [...userValues] , (insertErr) => {
+        if (insertErr) {
+          throw insertErr;
         }
-        return res.json(ucbxUsers);
+        connection.query(ucbxQueries.getUsers, (err, ucbxUsers) => {
+          if (err) {
+            throw err;
+          }
+          return res.json(ucbxUsers);
+        });
+        // console.log(ucbxUsers);
       });
-      // console.log(ucbxUsers);
-    });
+    } catch (e) {
+      console.log(e)
+    }
   },
   
   deleteUserById: (req, res) => {
