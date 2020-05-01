@@ -4,7 +4,7 @@ import Banner from './../Banner';
 import UserForm from './../UserForm';
 import Footer from './../Footer';
 import UserCard from './../UserCard';
-import Match from "../Match";
+// import Match from "../Match";
 // import Users from './../RenderCards';
 // import Match from './../Match';
 
@@ -19,15 +19,5 @@ const App = props => (
     <Route exact path="/profile" component={UserCard}/>
     <Footer/>
   </Router>
-  
-  // <Router>
-  //   <div className="container">
-      
-    
-  //     <Route exact path="/" component={TodoForm}/>
-  //     <Route exact path="/comments" component={Comments}/>
-  //     <Route exact path="/todos/:todoId" component={TodoListItem}/>  
-  //   </div>
-  // </Router>
 );
 export default App;

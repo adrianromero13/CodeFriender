@@ -60,65 +60,64 @@ class UserCard extends Component {
   //     })
   // }
 
-
+  contextRef = createRef()
   render() {
     console.log(this.state);
     return (
-      <Grid columns={2} divided>
+      <Grid centered columns={2} divided>
         {/* new */}
-        <Grid.Column>
-          <Ref innerRef={this.contextRef}>
-            <Segment>
-              {/* {_.times(1, (i) => ( */}
-                <MatchContainer />
-{/* 
-              ))} */}
-
-              <Rail position='left'>
-                <Sticky context={this.contextRef} pushing>
-                  {/* if statement
-          get all users then filter by strenth and weakness
-
-          if(this.state.weaknessMatch === this.state.strengthMatch){
-            
-          }
-
-          */}
-                  {/* insert props into Match */}
-
-                </Sticky>
-              </Rail>
-            </Segment>
-          </Ref>
-        </Grid.Column>
-
-        <Grid.Column>
-          {this.state.user.map(currentUser => (
-            <Card key={currentUser.id}>
-              <Image src={currentUser.badge} wrapped ui={false} />
-              <Card.Content>
-                <Card.Header>{currentUser.first_name} {currentUser.last_name}</Card.Header>
-                <Card.Meta>
-                  <span>Strength:{currentUser.strength} </span>
-                  <br></br>
-                  <span>Weakness:{currentUser.weakness} </span>
-                </Card.Meta>
-                <Card.Description>
-                  {currentUser.bio}
-                </Card.Description>
-              </Card.Content>
-              <Card.Content extra>
-                <a>
-                  <Icon name='user' />
-                  {currentUser.email}
-                </a>
-              </Card.Content>
-            </Card>
-          )
-          )}</Grid.Column>
+        <Ref innerRef={this.contextRef}>
+          <Segment>
+            <Grid.Column fluid horizontal width={12}>
+              {this.state.user.map(currentUser => (
+                <Card key={currentUser.id}>
+                  <Image src={currentUser.badge} wrapped ui={false} />
+                  <Card.Content>
+                    <Card.Header>{currentUser.first_name} {currentUser.last_name}</Card.Header>
+                    <Card.Meta>
+                      <span>Strength:{currentUser.strength} </span>
+                      <br></br>
+                      <span>Weakness:{currentUser.weakness} </span>
+                    </Card.Meta>
+                    <Card.Description>
+                      {currentUser.bio}
+                    </Card.Description>
+                  </Card.Content>
+                  <Card.Content extra>
+                    <a>
+                      <Icon name='user' />
+                      {currentUser.email}
+                    </a>
+                  </Card.Content>
+                </Card>
+              )
+              )}</Grid.Column>
+            <Rail position='left'>
+              <Sticky context={this.contextRef} pushing>
+                <Grid.Column width={4} centered>
+                  <MatchContainer />
 
 
+                </Grid.Column>
+              </Sticky>
+            </Rail>
+          </Segment>
+        </Ref>
       </Grid>
+      //         {/* if statement
+      // get all users then filter by strenth and weakness
+
+      // if(this.state.weaknessMatch === this.state.strengthMatch){
+
+      // }
+
+      // */}
+      //         {/* insert props into Match */}
+
+
+
+
+
       // <div>
       //   { this.state.user.length 
       //       ? this.renderUserCard() 

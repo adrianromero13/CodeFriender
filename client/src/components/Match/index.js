@@ -7,7 +7,6 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 const Match = (id, badge, first_name, last_name, strength, weakness, bio, email) => {
 //  console.log("this is Props", props);
     return(
-      // <div className={`container${props.fluid ? "-fluid" : ""}`} {...props} />
         <Card key={id}>
         <Image src={badge} wrapped ui={false} />
         <Card.Content>
