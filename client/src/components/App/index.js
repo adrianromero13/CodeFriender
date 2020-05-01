@@ -4,6 +4,7 @@ import Banner from './../Banner';
 import UserForm from './../UserForm';
 import Footer from './../Footer';
 import UserCard from './../UserCard';
+import Match from "../Match";
 // import Users from './../RenderCards';
 // import Match from './../Match';
 
@@ -16,7 +17,6 @@ const App = props => (
     <Banner/>
     <Route exact path="/" component={UserForm}/>
     <Route exact path="/profile" component={UserCard}/>
-  
     <Footer/>
   </Router>
   

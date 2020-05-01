@@ -3,25 +3,28 @@ import React from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
 // import Clipboard from './../../components/Clipboard';
 
-const Match = (props) => {
+
+const Match = (id, badge, first_name, last_name, strength, weakness, bio, email) => {
+//  console.log("this is Props", props);
     return(
-        <Card key={props.id}>
-        <Image src={props.badge} wrapped ui={false} />
+      // <div className={`container${props.fluid ? "-fluid" : ""}`} {...props} />
+        <Card key={id}>
+        <Image src={badge} wrapped ui={false} />
         <Card.Content>
-          <Card.Header>{props.first_name} {props.last_name}</Card.Header>
+          <Card.Header>{first_name} {last_name}</Card.Header>
           <Card.Meta>
-            <span>Strength:{props.strength} </span>
+            <span>Strength:{strength} </span>
             <br></br>
-            <span>Weakness:{props.weakness} </span>
+            <span>Weakness:{weakness} </span>
           </Card.Meta>
           <Card.Description>
-            {props.bio}
+            {bio}
           </Card.Description>
         </Card.Content>
         <Card.Content extra>
           <a>
             <Icon name='user' />
-            {props.email}
+            {email}
           </a>
         </Card.Content>
       </Card>
