@@ -1,10 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Form, Input, TextArea, Button, Select, Container, Grid } from 'semantic-ui-react';
-import { Link } from 'react-router-dom';
-
-
-// import 'semantic-ui-css/semantic.min.css'
+import { withRouter } from 'react-router-dom';
 
 
 const Strength1 = [
@@ -54,7 +51,7 @@ class UserForm extends Component {
 
   handleInputChange = (e, data) => {
     // Getting the value and name of the input which triggered the change
-    
+
     const { name, value } = data;
     // console.log(data);
     // Updating the input's state
@@ -78,127 +75,116 @@ class UserForm extends Component {
       github: this.state.github
     })
 
-      .then(res => this.setState({
-        firstName: "",
-        lastName: "",
-        strength: "",
-        weakness: "",
-        bio: "",
-        email: "",
-        github: "",
-      }))
+      .then(res => {
+        console.log(res)
+        this.setState({
+          firstName: "",
+          lastName: "",
+          strength: "",
+          weakness: "",
+          bio: "",
+          email: "",
+          github: "",
+        })
+        this.props.history.push({
+          pathname: '/profile',
+          state: { currentUser: res.data }
+        })
+      })
   };
 
   render() {
-    console.log(this.state)
     return (
       <Grid columns={2} divided>
         <Grid.Column>
-        <Container textAlign="justified">
-          <Form>
-            <Form.Group widths='equal'>
+          <Container textAlign="justified">
+            <Form>
+              <Form.Group widths='equal'>
+                <Form.Field
+                  id='form-input-control-first-name'
+                  control={Input}
+                  label='First name'
+                  placeholder='First name'
+                  onChange={this.handleInputChange}
+                  value={this.state.firstName}
+                  name='firstName'
+                />
+                <Form.Field
+                  id='form-input-control-last-name'
+                  control={Input}
+                  label='Last name'
+                  placeholder='Last name'
+                  onChange={this.handleInputChange}
+                  value={this.state.lastName}
+                  name='lastName'
+                />
+                <Form.Field
+                  control={Select}
+                  options={Strength1}
+                  label={{ children: 'Strength', htmlFor: 'form-select-control-strength' }}
+                  placeholder='Strength'
+                  search
+                  searchInput={{ id: 'form-select-control-strength' }}
+                  value={this.state.strength}
+                  onChange={this.handleInputChange}
+                  name='strength'
+                />
+                <Form.Field
+                  control={Select}
+                  options={Weakness1}
+                  label={{ children: 'Weakness', htmlFor: 'form-select-control-weakness' }}
+                  placeholder='Weakness'
+                  search
+                  searchInput={{ id: 'form-select-control-weakness' }}
+                  value={this.state.weakness}
+                  onChange={this.handleInputChange}
+                  name='weakness'
+                />
+              </Form.Group>
               <Form.Field
-                id='form-input-control-first-name'
+                id='form-textarea-control-bio'
+                name="bio"
+                control={TextArea}
+                label='Bio'
+                placeholder='Write a short description'
+                onChange={this.handleInputChange}
+                value={this.state.bio}
+              />
+              <Form.Field
+                id='form-input-control-error-email'
                 control={Input}
-                label='First name'
-                placeholder='First name'
+                label='Email'
+                placeholder='joey@fullstack.com'
                 onChange={this.handleInputChange}
-                value={this.state.firstName}
-                name='firstName'
+                value={this.state.email}
+                name='email'
+              // error={{
+              //   content: 'Please enter a valid email address',
+              //   pointing: 'above',
+              // }}
               />
               <Form.Field
-                id='form-input-control-last-name'
+                id='form-input-control-error-github'
                 control={Input}
-                label='Last name'
-                placeholder='Last name'
+                label='Github Username'
+                placeholder='janey123'
                 onChange={this.handleInputChange}
-                value={this.state.lastName}
-                name='lastName'
+                value={this.state.github}
+                name='github'
+              // error={{
+              //   content: 'Please enter a valid Github username',
+              //   pointing: 'above',
+              // }}
               />
               <Form.Field
-                control={Select}
-                options={Strength1}
-                label={{ children: 'Strength', htmlFor: 'form-select-control-strength' }}
-                placeholder='Strength'
-                search
-                searchInput={{ id: 'form-select-control-strength' }}
-                value={this.state.strength}
-                onChange={this.handleInputChange}
-                name='strength'
+                id='form-button-control-public'
+                control={Button}
+                content='Submit'
+                label='Click to Submit'
+                onClick={this.handleSubmit}
               />
-              <Form.Field
-                control={Select}
-                options={Weakness1}
-                label={{ children: 'Weakness', htmlFor: 'form-select-control-weakness' }}
-                placeholder='Weakness'
-                search
-                searchInput={{ id: 'form-select-control-weakness' }}
-                value={this.state.weakness}
-                onChange={this.handleInputChange}
-                name='weakness'
-              />
-            </Form.Group>
-            <Form.Field
-              id='form-textarea-control-bio'
-              name="bio"
-              control={TextArea}
-              label='Bio'
-              placeholder='Write a short description'
-              onChange={this.handleInputChange}
-              value={this.state.bio}
-            />
-            <Form.Field
-              id='form-input-control-error-email'
-              control={Input}
-              label='Email'
-              placeholder='joey@fullstack.com'
-              onChange={this.handleInputChange}
-              value={this.state.email}
-              name='email'
-            // error={{
-            //   content: 'Please enter a valid email address',
-            //   pointing: 'above',
-            // }}
-            />
-            <Form.Field
-              id='form-input-control-error-github'
-              control={Input}
-              label='Github Username'
-              placeholder='janey123'
-              onChange={this.handleInputChange}
-              value={this.state.github}
-              name='github'
-            // error={{
-            //   content: 'Please enter a valid Github username',
-            //   pointing: 'above',
-            // }}
-            />
-                <Link to = '/profile'>
-            <Form.Field
-              id='form-button-control-public'
-              control={Button}
-              content='Submit'
-              label='Click to Submit'
-              onClick={this.handleSubmit}
-              />
-              </Link>
-            
-            {/* <Form.Field
-            id='form-button-control-public'
-            control={Button}
-            content='Prev'
-            label='Click to see previous'
-            onClick={this.handleSubmit}
-          />
-          <Form.Field
-            id='form-button-control-public'
-            control={Button}
-            content='Next'
-            label='Click to see next'
-            onClick={this.handleSubmit}
-          /> */}
-          </Form>
-        </Container>
+            </Form>
+          </Container>
         </Grid.Column>
       </Grid>
     )
@@ -206,4 +192,4 @@ class UserForm extends Component {
 };
 
 
-export default UserForm;
+export default withRouter(UserForm);

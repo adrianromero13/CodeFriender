@@ -1,18 +1,19 @@
-import _ from 'lodash';
 import React, { Component, createRef } from 'react';
 import axios from 'axios';
+
 import { Card, Icon, Image } from 'semantic-ui-react';
 import { Grid, Sticky, Rail, Ref, Segment, Placeholder } from 'semantic-ui-react';
-// import { CopyToClipboard } from 'react-copy-to-clipboard';
-// import Clipboard from './../Clipboard';
-// import Clipboard from './../../components/Clipboard';
-// import Match from './../Match';
+import { withRouter } from 'react-router-dom';
+import _ from 'lodash';
+
 import CurrentUserContainer from '../CurrentUserContainer';
 
 class UserCard extends Component {
   state = {
     user: [],
     avatar: '',
+    currentUser: [],
+    allUsers: [],
     //new
     weaknessMatch: '',
     strengthMatch: '',
@@ -22,9 +23,14 @@ class UserCard extends Component {
   async componentDidMount() {
     try {
       const { data } = await axios.get('/api/ucbxusers')
+      const dataCopy = data;
+      let currentUser = this.props.history.location.state && this.props.history.location.state.newUser
+                        ? this.props.history.location.state.currentUser 
+                        : dataCopy.slice(dataCopy.length-1, dataCopy.length);
       console.log(data);
-      this.setState({ user: data });
-      console.log(this.state.user);
+      // let allUsers = data.slice(0, data.length - 1)
+      this.setState({ allUsers: data, currentUser });
+
     } catch (e) {
       console.log(e);
     }
@@ -32,14 +38,15 @@ class UserCard extends Component {
 
   contextRef = createRef()
   render() {
-    console.log(this.state);
+    console.log(this.state.allUsers);
+    console.log(this.state.currentUser);
     return (
       <Grid centered columns={2} divided>
         {/* new */}
         <Ref innerRef={this.contextRef}>
           <Segment>
-            <Grid.Column fluid horizontal width={12}>
-              {this.state.user.slice(0, this.state.user.length - 1).map(CodeFrienderUsers => (
+            <Grid.Column width={12}>
+              {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
                 <Card key={CodeFrienderUsers.id}>
                   <Image src={CodeFrienderUsers.badge} wrapped ui={false} />
                   <Card.Content>
@@ -54,51 +61,31 @@ class UserCard extends Component {
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra>
-                    <a>
-                      <Icon name='user' />
+                    {/* <a> */}
+                      <Icon name='allUsers' />
                       {CodeFrienderUsers.email}
-                    </a>
+                    {/* </a> */}
                   </Card.Content>
                 </Card>
               )
               )}</Grid.Column>
             <Rail position='left'>
               <Sticky context={this.contextRef} pushing>
-                <Grid.Column width={4} centered>
-                  <CurrentUserContainer />
+                <Grid.Column width={4} >
 
-
+                  {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
+        
                 </Grid.Column>
               </Sticky>
             </Rail>
           </Segment>
         </Ref>
       </Grid>
-      //         {/* if statement
-      // get all users then filter by strenth and weakness
-
-      // if(this.state.weaknessMatch === this.state.strengthMatch){
-
-      // }
-
-      // */}
-      //         {/* insert props into Match */}
-
-
-
-
-
-      // <div>
-      //   { this.state.user.length 
-      //       ? this.renderUserCard() 
-      //       : <div><p>Loading...</p></div>
-      //     }
-      // </div>
     )
   }
 }
 
 
-export default UserCard;
+export default withRouter(UserCard);
 
 

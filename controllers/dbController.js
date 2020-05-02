@@ -1,6 +1,7 @@
+const axios = require('axios');
+
 const connection = require('../config/connection');
 const ucbxQueries = require('../db/ucbxQueries');
-const axios = require('axios');
 
 module.exports = {
   getUsers: (req, res) => {
@@ -34,11 +35,11 @@ module.exports = {
           if (insertErr) {
             throw insertErr;
           }
-          connection.query(ucbxQueries.getUsers, (err, ucbxUsers) => {
+          connection.query(ucbxQueries.getUserByGithub, req.body.github, (err, currentUser) => {
             if (err) {
               throw err;
             }
-            return res.json(ucbxUsers);
+            return res.json(currentUser);
           });
           // console.log(ucbxUsers);
         });
@@ -87,11 +88,11 @@ module.exports = {
   },
 
   getUserByGithub: (req, res) => {
-    console.log("Get by Github",req.params.id)
+    console.log("Get by Github", req.params.id)
     const { ucbxCurrentUser } = req.params.id;
-    connection.query(ucbxQueries.getUserByGithub, ucbxCurrentUser, (err,result) => {
+    connection.query(ucbxQueries.getUserByGithub, ucbxCurrentUser, (err, result) => {
       if (err) {
-        console.log("Error",err)
+        console.log("Error", err)
         throw err;
       }
       console.log(result)

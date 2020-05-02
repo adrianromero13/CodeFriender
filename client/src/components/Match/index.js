@@ -51,3 +51,64 @@ class Match extends Component {
     }
 }
 export default Match;
+
+
+// currentUser: {
+//     name: "",
+//     github: "",
+//     strength: "HTML"
+// }
+
+// allUsers: [
+//     {
+//         name: "",
+//         github: "",
+//         weakness: "HTML"
+//     },
+//     {
+//         name: "",
+//         github: "",
+//     }
+// ]
+
+
+// create new Profile container
+// inside Profile
+//     render 
+//         BestMatches - 2pts - users where strength and weakness match
+//             In CDM - axios call to get users with matching strength + weakness
+//             save to state
+//             render to page
+//         BestMatchesForThem - 1pt - users where strength matches to weakness 
+//             In CDM - axios call to get users with matching strength + weakness
+//             save to state
+//             render to page
+//         BestMatchesForMe - 1pt - users where weakness matches to strength
+//             In CDM - axios call to get users with matching strength + weakness
+//             save to state
+//             render to page
+
+//mysql way
+// select * from ucbxusers where strength = current weakness
+//
+
+// Mark
+// S: HTML
+// W: CSS
+
+// Musa
+// S: JS
+// W: HTML
+
+// Adrian:
+// S: CSS
+// W: JS
+
+// Armande
+// S: CSS
+// W: HTML
+
+// CurrentUser: Mark
+// BestMatch - Mark and Armande are a 2 point match
+// BestMatchForThem - Mark and Musa are a 1 point match because not both cases are satisfied
+// BestMatchForMe - Mark and Adrian are a 1 point match because not both cases are satisfied
