@@ -1,28 +1,30 @@
 import React, { Component } from "react"
-// import { useParams } from "react-router-dom"
+import { Icon } from 'semantic-ui-react';
+
 
 class Clipboard extends Component {
-    copyCodeToClipboard = () => {
+  constructor(props) {
+    super(props)
+
+    this.state = {
+      copySuccess: false
+      
+    }
+  }
+
+  copyCodeToClipboard = () => {
     const el = this.textArea
     el.select()
     document.execCommand("copy")
+    this.setState({ copySuccess: true })
   }
- 
+
   render() {
     return (
-      <div>
-        <div>
-          <textarea
-            ref={(textarea) => this.textArea = textarea}
-            value="Example copy for the textarea."
-          />
-        </div>
-        <div>
-          <button onClick={() => this.copyCodeToClipboard()}>
-            {this.users.email}
-          </button>
-        </div>
-      </div>
+      <a onClick={() => this.copyCodeToClipboard()}>
+        <Icon name='user' />
+        {CodeFrienderUsers.email}
+      </a>
     )
   }
 }

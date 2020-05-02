@@ -88,7 +88,7 @@ module.exports = {
 
   getUserByGithub: (req, res) => {
     const { ucbxCurrentUser } = req.params;
-    connection.query(ucbxQueries.getUserByGithub, ucbxCurrentUser, (err) =>{
+    connection.query(ucbxQueries.getUserByGithub, ucbxCurrentUser, (err) => {
       if (err) {
         throw err;
       }
