@@ -3,8 +3,8 @@ const insertUser = 'INSERT INTO ucbxusers (first_name, last_name, strength, weak
 const getUsers = 'SELECT * FROM ucbxUsers;';
 const getUserByStrength = 'SELECT * FROM ucbxUsers WHERE strength = ?;';
 const getUserByWeakness = 'SELECT * FROM ucbxUsers WHERE weakness = ?;';
-// get user by github
-const getUserByGithub = 'SELECT * FROM ucbxUsers WHERE github = ?;';
+// // get user by github
+// const getUserByGithub = 'SELECT * FROM ucbxUsers WHERE github = ?;';
 
 const deleteUserById = 'DELETE FROM ucbxUsers WHERE id = ?;';
 const getUserById = 'SELECT * FROM ucbxUsers WHERE id = ?;';
@@ -18,5 +18,5 @@ module.exports = {
   updateUser,
   getUserByStrength,
   getUserByWeakness,
-  getUserByGithub,
+  // getUserByGithub,
 };

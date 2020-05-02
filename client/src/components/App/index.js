@@ -2,7 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 import Banner from './../Banner';
 import UserForm from './../UserForm';
-import Footer from './../Footer';
+// import Footer from './../Footer';
 import UserCard from './../UserCard';
 // import Match from "../Match";
 // import Users from './../RenderCards';
@@ -17,7 +17,7 @@ const App = props => (
     <Banner/>
     <Route exact path="/" component={UserForm}/>
     <Route exact path="/profile" component={UserCard}/>
-    <Footer/>
+    {/* <Footer/> */}
   </Router>
 );
 export default App;

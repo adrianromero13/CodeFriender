@@ -1,7 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import { Form, Input, TextArea, Button, Select, Container, Grid } from 'semantic-ui-react';
-import LoginForm from "../LoginForm";
 import { Link } from 'react-router-dom';
 
 
@@ -172,20 +171,16 @@ class UserForm extends Component {
             //   pointing: 'above',
             // }}
             />
+                <Link to = '/profile'>
             <Form.Field
               id='form-button-control-public'
               control={Button}
               content='Submit'
               label='Click to Submit'
               onClick={this.handleSubmit}
-            />
-            <Link to = '/Profile'>
-            <Form.Field 
-              id='form-button-control-public'
-              control={Button}
-              content='Profile'
-            />
-            </Link>
+              />
+              </Link>
+            
             {/* <Form.Field
             id='form-button-control-public'
             control={Button}
@@ -202,9 +197,6 @@ class UserForm extends Component {
           /> */}
           </Form>
         </Container>
-        </Grid.Column>
-        <Grid.Column>
-          <LoginForm />
         </Grid.Column>
       </Grid>
     )

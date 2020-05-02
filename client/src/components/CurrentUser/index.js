@@ -4,7 +4,7 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 // import Clipboard from './../../components/Clipboard';
 
 
-const Match = (id, badge, first_name, last_name, strength, weakness, bio, email) => {
+const CurrentUser = (id, badge, first_name, last_name, strength, weakness, bio, email) => {
 //  console.log("this is Props", props);
     return(
         <Card key={id}>
@@ -52,7 +52,7 @@ const Match = (id, badge, first_name, last_name, strength, weakness, bio, email)
 //   }
 
 //   renderUserCard() {
-//       this.state.user.map(currentUser => {
+//       this.state.user.map(Usecurrentr => {
 //         return (
 //           <Card key={currentUser.id}>
 //             <Image src={currentUser.badge} wrapped ui={false} />
@@ -115,4 +115,4 @@ const Match = (id, badge, first_name, last_name, strength, weakness, bio, email)
 //   }
 }
 
-export default Match;
+export default CurrentUser;
