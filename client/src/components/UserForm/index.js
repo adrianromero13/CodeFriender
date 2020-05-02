@@ -51,8 +51,10 @@ class UserForm extends Component {
     github: "",
   };
 
+
   handleInputChange = (e, data) => {
     // Getting the value and name of the input which triggered the change
+    
     const { name, value } = data;
     // console.log(data);
     // Updating the input's state
