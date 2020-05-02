@@ -8,14 +8,23 @@ router.route('/')
   .post(dbController.insertUser);
 
 
-  router.route("/github/:id")
-  .get(dbController.getUserByGithub);
+  // router.route("/github/:id")
+  // .get(dbController.getUserByGithub);
+  
+  router.route('/bestmatches')
+    .post(dbController.getBestMatches);
+  
+  router.route('/matchesforthem')
+    .post(dbController.getMatchesForThem);
+    
+  router.route('/matchesforme')
+    .post(dbController.getMatchesForMe);
 
 
-router.route('/:ucbxuserId')
-  .delete(dbController.deleteUserById)
-  .get(dbController.getUserById)
-  .patch(dbController.updateUser);
+// router.route('/:ucbxuserId')
+//   .delete(dbController.deleteUserById)
+//   .get(dbController.getUserById)
+//   .patch(dbController.updateUser);
 
 // when you want to update more than 1 property in an object
 

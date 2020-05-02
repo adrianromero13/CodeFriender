@@ -111,4 +111,31 @@ module.exports = {
       res.json({ success: true });
     });
   },
+
+  getBestMatches: (req, res) => {
+    console.log(req.body)
+    const { currentUser } = req.body;
+    connection.query(ucbxQueries.getBestMatches, [currentUser.weakness, currentUser.strength], (err, bestMatches) => {
+      if (err) throw err;
+      res.json(bestMatches)
+    });
+  },
+
+  getMatchesForThem: (req, res) => {
+    console.log(req.body)
+    const { currentUser } = req.body;
+    connection.query(ucbxQueries.getMatchesForThem, [currentUser.strength], (err, matchesForThem) => {
+      if (err) throw err;
+      res.json(matchesForThem)
+    });
+  },
+
+  getMatchesForMe: (req, res) => {
+    console.log(req.body)
+    const { currentUser } = req.body;
+    connection.query(ucbxQueries.getMatchesForMe, [currentUser.weakness], (err, matchesForMe) => {
+      if (err) throw err;
+      res.json(matchesForMe)
+    });
+  },
 };
