@@ -1,61 +1,36 @@
-import _ from 'lodash';
 import React, { Component, createRef } from 'react';
-import axios from 'axios';
 import { Card, Icon, Image } from 'semantic-ui-react';
-// import { Grid, Sticky, Rail, Ref, Segment, Placeholder } from 'semantic-ui-react';
-// import CurrentUserContainer from '../CurrentUserContainer';
+
+import _ from 'lodash';
 
 class CurrentUserContainer extends Component {
-  state = {
-    user: [],
-    avatar: '',
-    //new
-    // weaknessMatch: '',
-    // strengthMatch: '',
-  }
 
-  async componentDidMount() {
-    try {
-      const { data } = await axios.get('/api/ucbxusers')
-      console.log(data);
-      this.setState({ user: data });
-      console.log(this.state.user);
-    } catch (e) {
-      console.log(e);
-    }
-  }
-
-
-  contextRef = createRef()
   render() {
-    console.log(this.state);
     return (
-        <div>
-              {this.state.user.slice(this.state.user.length - 1, this.state.user.length).map(currentUser => (
-                <Card key={currentUser.id}>
-                  <Image src={currentUser.badge} wrapped ui={false} />
-                  <Card.Content>
-                    <Card.Header>{currentUser.first_name} {currentUser.last_name}</Card.Header>
-                    <Card.Meta>
-                      <span>Strength:{currentUser.strength} </span>
-                      <br></br>
-                      <span>Weakness:{currentUser.weakness} </span>
-                    </Card.Meta>
-                    <Card.Description>
-                      {currentUser.bio}
-                    </Card.Description>
-                  </Card.Content>
-                  <Card.Content extra>
-                    <a>
-                      <Icon name='user' />
-                      {currentUser.email}
-                    </a>
-                  </Card.Content>
-                </Card>
-              )
-              )}</div>
-  
-    )}
+      <div>
+        {/* {this.state.user.slice(this.state.user.length - 1, this.state.user.length).map(currentUser => ( */}
+        <Card>
+          <Image src={this.props.currentUser.badge} wrapped ui={false} />
+          <Card.Content>
+            <Card.Header>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</Card.Header>
+            <Card.Meta>
+              <span>Strength:{this.props.currentUser.strength} </span>
+              <br></br>
+              <span>Weakness:{this.props.currentUser.weakness} </span>
+            </Card.Meta>
+            <Card.Description>
+              {this.props.currentUser.bio}
+            </Card.Description>
+          </Card.Content>
+          <Card.Content extra>
+              <Icon name='user' />
+              {this.props.currentUser.email}
+          </Card.Content>
+        </Card>
+      </div>
+
+    )
+  }
 };
 
 

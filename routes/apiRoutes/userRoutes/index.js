@@ -17,10 +17,6 @@ router.route('/:ucbxuserId')
   .get(dbController.getUserById)
   .patch(dbController.updateUser);
 
-// router.route('/:ucbxCurrentUser')
-//   .get(dbController.getUserByGithub)
-
-
 // when you want to update more than 1 property in an object
 
 // PATCH  when you only want to update 1 property in an object

@@ -17,15 +17,3 @@ github VARCHAR (50) NOT NULL,
 badge VARCHAR (200),
 PRIMARY KEY (id)
 );
-
--- CREATE TABLE ucbxStrengths (
---     id INT AUTO_INCREMENT NOT NULL,
---     subjects VARCHAR (50) NOT NULL,
---     PRIMARY KEY (id)
--- );
-
--- Create TABLE ucbxWeakness (
---     id INT AUTO_INCREMENT NOT NULL,
---     subjects VARCHAR (50) NOT NULL,
---     PRIMARY KEY (id)
--- );
