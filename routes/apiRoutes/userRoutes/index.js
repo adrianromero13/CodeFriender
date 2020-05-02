@@ -8,6 +8,10 @@ router.route('/')
   .post(dbController.insertUser);
 
 
+  router.route("/github/:id")
+  .get(dbController.getUserByGithub);
+
+
 router.route('/:ucbxuserId')
   .delete(dbController.deleteUserById)
   .get(dbController.getUserById)
