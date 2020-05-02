@@ -2,56 +2,117 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import { Form, Input, TextArea, Button, Select, Container, Grid } from 'semantic-ui-react';
 
+import UserProfile from '../UserProfile';
+
 
 class Match extends Component {
     state = {
-        github: ""
+        currentUser: {},
+        bestMatches: [],
+        matchesForThem: [],
+        matchesForMe: [],
     }
 
-        handleInputChange = (e, data) => {
-            // Getting the value and name of the input which triggered the change
-            
-            const { name, value } = data;
-            // console.log(data);
-            // Updating the input's state
-            this.setState({
-              [name]: value
-            });
-        }    
-        handleSubmit = (e) => {
-            e.preventDefault();
-            
-            console.log("Match",this.state);
-            // The second parameter to this post request is going to become req.body
-            axios.get('/api/ucbxusers/github/'+this.state.github)
-            .then(response => {
-              console.log(response);
-            })
-        }    
+    async componentDidMount() {
+        await this.getCurrentUser();
+    }
+
+    getCurrentUser = async () => {
+        try {
+            const { data } = await axios.get('/api/ucbxusers')
+            let currentUser = this.props.history.location.state && this.props.history.location.state.newUser
+                ? this.props.history.location.state.currentUser
+                : data.slice(data.length - 1, data.length);
+            console.log(currentUser[0])
+            this.getBestMatches(currentUser[0]);
+            this.getMatchesForThem(currentUser[0]);
+            this.getMatchesForMe(currentUser[0]);
+            this.setState({ currentUser: currentUser[0] });
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    getBestMatches = async (currentUser) => {
+        try {
+            console.log(currentUser)
+            const { data } = await axios.post('/api/ucbxusers/bestmatches', { currentUser })
+            this.setState({ bestMatches: data })
+        } catch (e) {
+            console.log(e);
+        }
+    }
+
+    getMatchesForThem = async (currentUser) => {
+        try {
+            console.log(currentUser)
+            const { data } = await axios.post("/api/ucbxusers/matchesforthem", { currentUser })
+            this.setState({ matchesForThem: data })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
+
+    getMatchesForMe = async (currentUser) => {
+        try {
+            console.log(currentUser)
+            const { data } = await axios.post("/api/ucbxusers/matchesforme", { currentUser })
+            this.setState({ matchesForMe: data })
+        } catch (e) {
+            console.log(e)
+        }
+    }
+
     render() {
-        return (<div>
-            <Form.Field
-                id='form-input-control-error-github'
-                control={Input}
-                label='Github Username'
-                placeholder='janey123'
-                onChange={this.handleInputChange}
-                value={this.state.github}
-                name='github'
-            />
-            <Form.Field
-              id='form-button-control-public'
-              control={Button}
-              content='Submit'
-              label='Click to Submit'
-              onClick={this.handleSubmit}
-              />
-        
-        </div>)
+        return (
+            <div>
+                <div className="row">
+                    {/* currentUser Profile Card */}
+                    <UserProfile user={this.state.currentUser} />
+                </div>
+                <div className="row">
+                    {/* map bestMatches from state */}
+                    <h1>Best Matches</h1>
+                    {this.state.bestMatches.length && this.state.bestMatches.map((user,idx) => <UserProfile user={user} key={idx} />)}
+                </div>
+                <div className="row">
+                    {/* map mtchesForThem from state */}
+                    <h1>Best Matches For Them</h1>
+                    {this.state.matchesForThem.length && this.state.matchesForThem.map((user,idx) => <UserProfile user={user} key={idx} />)}
+                </div>
+                <div className="row">
+                    {/* map mtchesForMe from state */}
+                    <h1>Best Matches For Me</h1>
+                    {this.state.matchesForMe.length && this.state.matchesForMe.map((user,idx) => <UserProfile user={user} key={idx} />)}
+                </div>
+            </div>
+
+        )
     }
 }
+
 export default Match;
 
+        // <div>
+        //     <Form.Field
+        //         id='form-input-control-error-github'
+        //         control={Input}
+        //         label='Github Username'
+        //         placeholder='janey123'
+        //         onChange={this.handleInputChange}
+        //         value={this.state.github}
+        //         name='github'
+        //     />
+        //     <Form.Field
+        //         id='form-button-control-public'
+        //         control={Button}
+        //         content='Submit'
+        //         label='Click to Submit'
+        //         onClick={this.handleSubmit}
+        //     />
+
+        // </div>
 
 // currentUser: {
 //     name: "",
