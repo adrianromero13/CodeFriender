@@ -6,7 +6,7 @@ import { Grid, Sticky, Rail, Ref, Segment, Placeholder } from 'semantic-ui-react
 
 // import Clipboard from './../../components/Clipboard';
 // import Match from './../Match';
-import MatchContainer from '../MatchContainer';
+import CurrentUserContainer from '../CurrentUserContainer';
 
 class UserCard extends Component {
   state = {
@@ -69,24 +69,24 @@ class UserCard extends Component {
         <Ref innerRef={this.contextRef}>
           <Segment>
             <Grid.Column fluid horizontal width={12}>
-              {this.state.user.map(currentUser => (
-                <Card key={currentUser.id}>
-                  <Image src={currentUser.badge} wrapped ui={false} />
+              {this.state.user.slice(0, this.state.user.length - 1).map(CodeFrienderUsers => (
+                <Card key={CodeFrienderUsers.id}>
+                  <Image src={CodeFrienderUsers.badge} wrapped ui={false} />
                   <Card.Content>
-                    <Card.Header>{currentUser.first_name} {currentUser.last_name}</Card.Header>
+                    <Card.Header>{CodeFrienderUsers.first_name} {CodeFrienderUsers.last_name}</Card.Header>
                     <Card.Meta>
-                      <span>Strength:{currentUser.strength} </span>
+                      <span>Strength:{CodeFrienderUsers.strength} </span>
                       <br></br>
-                      <span>Weakness:{currentUser.weakness} </span>
+                      <span>Weakness:{CodeFrienderUsers.weakness} </span>
                     </Card.Meta>
                     <Card.Description>
-                      {currentUser.bio}
+                      {CodeFrienderUsers.bio}
                     </Card.Description>
                   </Card.Content>
                   <Card.Content extra>
                     <a>
                       <Icon name='user' />
-                      {currentUser.email}
+                      {CodeFrienderUsers.email}
                     </a>
                   </Card.Content>
                 </Card>
@@ -95,7 +95,7 @@ class UserCard extends Component {
             <Rail position='left'>
               <Sticky context={this.contextRef} pushing>
                 <Grid.Column width={4} centered>
-                  <MatchContainer />
+                  <CurrentUserContainer />
 
 
                 </Grid.Column>
