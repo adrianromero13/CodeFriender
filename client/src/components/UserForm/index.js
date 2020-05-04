@@ -158,10 +158,6 @@ class UserForm extends Component {
                 onChange={this.handleInputChange}
                 value={this.state.email}
                 name='email'
-              // error={{
-              //   content: 'Please enter a valid email address',
-              //   pointing: 'above',
-              // }}
               />
               <Form.Field
                 id='form-input-control-error-github'
@@ -171,10 +167,6 @@ class UserForm extends Component {
                 onChange={this.handleInputChange}
                 value={this.state.github}
                 name='github'
-              // error={{
-              //   content: 'Please enter a valid Github username',
-              //   pointing: 'above',
-              // }}
               />
               <Form.Field
                 id='form-button-control-public'

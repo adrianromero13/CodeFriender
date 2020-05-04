@@ -10,10 +10,10 @@ import Match from "../../containers/Match";
 
 const App = props => (
   <Router>
-    <Banner/>
-    <Route exact path="/" component={UserForm}/>
-    <Route exact path="/profile" component={UserCard}/>
-  <Route exact path="/match" component ={Match}/>
+    <Banner />
+    <Route exact path="/" component={UserForm} />
+    <Route exact path="/profile" component={UserCard} />
+    <Route exact path="/match" component={Match} />
     {/* <Footer/> */}
   </Router>
 );
