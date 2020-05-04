@@ -1,15 +1,11 @@
 const router = require('express').Router();
 
 const dbController = require('../../../controllers/dbController');
-//localhost:3001/api/ucbxUsers
-// /api/todos prepended to every route
+//localhost:3001/api/ucbxusers
+// /api/ucbxusers prepended to every route
 router.route('/')
   .get(dbController.getUsers)
   .post(dbController.insertUser);
-
-
-// router.route("/github/:id")
-// .get(dbController.getUserByGithub);
 
 router.route('/bestmatches')
   .post(dbController.getBestMatches);

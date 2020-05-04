@@ -1,9 +1,9 @@
-DROP DATABASE IF EXISTS developer_db;
+DROP DATABASE IF EXISTS eyjq5knu404g2oqf;
 
-CREATE DATABASE developer_db;
+CREATE DATABASE eyjq5knu404g2oqf;
 
 
-USE developer_db;
+USE eyjq5knu404g2oqf;
 
 CREATE TABLE ucbxUsers (
 id INTEGER NOT NULL AUTO_INCREMENT,
