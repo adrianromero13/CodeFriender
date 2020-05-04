@@ -20,8 +20,4 @@ const routes = require('./routes');
 
 // Prepend / to any route declared inside of routes
 app.use(routes);
-// app.get('/api/ucbxUsers/github', function(req,res){
-//    console.log("Github",req.body.github)
-//    dbController.getUserByGithub(req.body.github)
-// })
 app.listen(PORT, () => console.log('Port started on port: ' + PORT));

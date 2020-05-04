@@ -20,8 +20,8 @@ class UserCard extends Component {
       const { data } = await axios.get('/api/ucbxusers')
       const dataCopy = data;
       let currentUser = this.props.history.location.state && this.props.history.location.state.newUser
-                        ? this.props.history.location.state.currentUser 
-                        : dataCopy.slice(dataCopy.length-1, dataCopy.length);
+        ? this.props.history.location.state.currentUser
+        : dataCopy.slice(dataCopy.length - 1, dataCopy.length);
       console.log(data);
       // let allUsers = data.slice(0, data.length - 1)
       this.setState({ allUsers: data, currentUser });
@@ -30,34 +30,37 @@ class UserCard extends Component {
       console.log(e);
     }
   }
- 
+
   contextRef = createRef()
-  render() { 
+  render() {
     return (
-      <Grid centered columns={2} divided>
-        <Ref innerRef={this.contextRef}>
+      <Grid centered columns={2} >
+        {/* <Ref innerRef={this.contextRef}> */}
           <Segment>
-          
+
             <Grid.Column width={12}>
+              <Card.Group itemsPerRow={6}>
               {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
-                <CFUsersComponent codeFrienderUsers={CodeFrienderUsers}/>
-              )
-              )}
-              </Grid.Column>
+                <CFUsersComponent codeFrienderUsers={CodeFrienderUsers} />
+                )
+                )}
+                </Card.Group>
+            </Grid.Column>
 
 
-            <Rail position='left'>
-              <Sticky context={this.contextRef} pushing>
-                
+
+            {/* <Rail position='left'> */}
+              {/* <Sticky context={this.contextRef} pushing> */}
+
                 <Grid.Column width={4} >
 
                   {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
-        
+
                 </Grid.Column>
-              </Sticky>
-            </Rail>
+              {/* </Sticky>
+            </Rail> */}
           </Segment>
-        </Ref>
+        {/* </Ref> */}
       </Grid>
     )
   }

@@ -1,8 +1,9 @@
-/* #root {
+#root {
   display: flex;
   min-height: 100vh;
   flex-direction: column;
-} */
+}
+
 
 footer {
     width: 100%;
