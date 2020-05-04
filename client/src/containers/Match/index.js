@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import { Form, Input, TextArea, Button, Select, Container, Grid } from 'semantic-ui-react';
+// import { Form, Input, TextArea, Button, Select, Container, Grid } from 'semantic-ui-react';
 
 import UserProfile from '../../components/UserProfile';
 

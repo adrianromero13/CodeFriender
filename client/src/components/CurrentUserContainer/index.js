@@ -1,5 +1,6 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import { Card, Icon, Image } from 'semantic-ui-react';
+
 import _ from 'lodash';
 
 class CurrentUserContainer extends Component {
