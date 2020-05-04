@@ -3,7 +3,7 @@ import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Banner from '../../containers/Banner';
 import UserForm from './../UserForm';
-import UserCard from './../UserCard';
+import UserCard from '../../containers/UserCard';
 import Match from "../../containers/Match";
 
 
