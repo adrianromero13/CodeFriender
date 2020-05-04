@@ -6,7 +6,7 @@ const userRoutes = require('./userRoutes');
 
 
 
-// declares a route for /api/ucbxUsers
+// declares a route for /api/ucbxusers
 router.use('/ucbxusers', userRoutes);
 
 

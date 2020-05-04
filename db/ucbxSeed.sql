@@ -1,4 +1,4 @@
-USE developer_db;
+USE eyjq5knu404g2oqf;
 
 INSERT INTO ucbxUsers (first_name, last_name, strength, weakness, bio, email, github, badge)
 VALUES 
