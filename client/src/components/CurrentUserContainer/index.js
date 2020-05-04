@@ -7,8 +7,6 @@ class CurrentUserContainer extends Component {
 
   render() {
     return (
-      <div>
-        {/* {this.state.user.slice(this.state.user.length - 1, this.state.user.length).map(currentUser => ( */}
         <Card>
           <Image src={this.props.currentUser.badge} wrapped ui={false} />
           <Card.Content>
@@ -27,7 +25,7 @@ class CurrentUserContainer extends Component {
               {this.props.currentUser.email}
           </Card.Content>
         </Card>
-      </div>
+      
 
     )
   }

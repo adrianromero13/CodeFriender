@@ -5,7 +5,7 @@ CREATE DATABASE eyjq5knu404g2oqf;
 
 USE eyjq5knu404g2oqf;
 
-CREATE TABLE ucbxUsers (
+CREATE TABLE ucbxusers (
 id INTEGER NOT NULL AUTO_INCREMENT,
 first_name VARCHAR (50) NOT NULL,
 last_name VARCHAR (50) NOT NULL,

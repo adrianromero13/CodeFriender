@@ -5,11 +5,11 @@ const ucbxQueries = require('../db/ucbxQueries');
 
 module.exports = {
   getUsers: (req, res) => {
-    connection.query(ucbxQueries.getUsers, (err, ucbxUsers) => {
+    connection.query(ucbxQueries.getUsers, (err, ucbxusers) => {
       if (err) {
         throw err;
       }
-      return res.json(ucbxUsers);
+      return res.json(ucbxusers);
     });
   },
 
@@ -41,7 +41,7 @@ module.exports = {
             }
             return res.json(currentUser);
           });
-          // console.log(ucbxUsers);
+          // console.log(ucbxusers);
         });
     } catch (e) {
       console.log(e)

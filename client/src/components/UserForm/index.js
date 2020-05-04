@@ -65,7 +65,7 @@ class UserForm extends Component {
     console.log("I happened");
     console.log(this.state);
     // The second parameter to this post request is going to become req.body
-    axios.post('/api/ucbxusers', {
+     axios.post('/api/ucbxusers', {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       strength: this.state.strength,

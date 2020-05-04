@@ -3,6 +3,7 @@ import axios from 'axios';
 // import { Form, Input, TextArea, Button, Select, Container, Grid } from 'semantic-ui-react';
 
 import UserProfile from '../../components/UserProfile';
+import { Grid } from 'semantic-ui-react';
 
 
 class Match extends Component {
@@ -66,27 +67,27 @@ class Match extends Component {
 
     render() {
         return (
-            <div>
-                <div className="row">
+            <Grid columns='three'>
+                <Grid.Row >
                     {/* currentUser Profile Card */}
                     <UserProfile user={this.state.currentUser} />
-                </div>
-                <div className="row">
+                </Grid.Row>
+                <Grid.Row columns={3}>
                     {/* map bestMatches from state */}
                     <h1>Best Matches</h1>
                     {this.state.bestMatches.length && this.state.bestMatches.map((user,idx) => <UserProfile user={user} key={idx} />)}
-                </div>
-                <div className="row">
+                </Grid.Row>
+                <Grid.Row columns={3}>
                     {/* map mtchesForThem from state */}
                     <h1>Best Matches For Them</h1>
                     {this.state.matchesForThem.length && this.state.matchesForThem.map((user,idx) => <UserProfile user={user} key={idx} />)}
-                </div>
-                <div className="row">
+                </Grid.Row>
+                <Grid.Row columns={3}>
                     {/* map mtchesForMe from state */}
                     <h1>Best Matches For Me</h1>
                     {this.state.matchesForMe.length && this.state.matchesForMe.map((user,idx) => <UserProfile user={user} key={idx} />)}
-                </div>
-            </div>
+                </Grid.Row>
+            </Grid>
 
         )
     }
