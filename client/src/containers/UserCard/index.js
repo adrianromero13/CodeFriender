@@ -4,8 +4,8 @@ import { Grid, Sticky, Rail, Ref, Segment, Card, Icon, Image } from 'semantic-ui
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
-import CurrentUserContainer from '../CurrentUserContainer';
-import CFUsersComponent from '../CFUsersComponent';
+import CurrentUserContainer from '../../components/CurrentUserContainer';
+import CFUsersComponent from '../../components/CFUsersComponent';
 
 class UserCard extends Component {
   state = {
@@ -30,30 +30,9 @@ class UserCard extends Component {
       console.log(e);
     }
   }
-
-  // <Card key={CodeFrienderUsers.id}>
-  //                 <Image src={CodeFrienderUsers.badge} wrapped ui={false} />
-  //                 <Card.Content>
-  //                   <Card.Header>{CodeFrienderUsers.first_name} {CodeFrienderUsers.last_name}</Card.Header>
-  //                   <Card.Meta>
-  //                     <span>Strength:{CodeFrienderUsers.strength} </span>
-  //                     <br></br>
-  //                     <span>Weakness:{CodeFrienderUsers.weakness} </span>
-  //                   </Card.Meta>
-  //                   <Card.Description>
-  //                     {CodeFrienderUsers.bio}
-  //                   </Card.Description>
-  //                 </Card.Content>
-  //                 <Card.Content extra>
-  //                   {/* <a> */}
-  //                     <Icon name='allUsers' />
-  //                     {CodeFrienderUsers.email}
-  //                   {/* </a> */}
-  //                 </Card.Content>
-  //               </Card>
-
+ 
   contextRef = createRef()
-  render() {
+  render() { 
     return (
       <Grid centered columns={2} divided>
         <Ref innerRef={this.contextRef}>
