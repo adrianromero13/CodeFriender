@@ -1,6 +1,6 @@
 import React, { Component, createRef } from 'react';
 import axios from 'axios';
-import { Grid, Sticky, Rail, Ref, Segment, Card, Icon, Image } from 'semantic-ui-react';
+import { Grid, Container, Responsive, Sticky, Rail, Ref, Segment, Card, Icon, Image } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
@@ -34,34 +34,40 @@ class UserCard extends Component {
   contextRef = createRef()
   render() {
     return (
-      <Grid centered columns={2} >
-        {/* <Ref innerRef={this.contextRef}> */}
-          <Segment>
+      <Container fluid>
 
-            <Grid.Column width={12}>
-              <Card.Group itemsPerRow={6}>
-              {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
-                <CFUsersComponent codeFrienderUsers={CodeFrienderUsers} />
-                )
-                )}
+        <Grid centered columns={2} >
+          {/* <Ref innerRef={this.contextRef}> */}
+          <Segment.Group>
+            <Responsive as={Segment}>
+
+
+              <Grid.Column width={12}>
+                <Card.Group centered itemsPerRow={6}>
+                  {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
+                    <CFUsersComponent codeFrienderUsers={CodeFrienderUsers} />
+                  )
+                  )}
                 </Card.Group>
-            </Grid.Column>
+              </Grid.Column>
 
 
 
-            {/* <Rail position='left'> */}
+              {/* <Rail position='left'> */}
               {/* <Sticky context={this.contextRef} pushing> */}
 
-                <Grid.Column width={4} >
+              <Grid.Column width={4} >
 
-                  {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
+                {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
 
-                </Grid.Column>
+              </Grid.Column>
               {/* </Sticky>
             </Rail> */}
-          </Segment>
-        {/* </Ref> */}
-      </Grid>
+            </Responsive>
+          </Segment.Group>
+          {/* </Ref> */}
+        </Grid>
+      </Container>
     )
   }
 }

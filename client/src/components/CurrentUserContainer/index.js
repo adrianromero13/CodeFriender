@@ -7,7 +7,7 @@ class CurrentUserContainer extends Component {
 
   render() {
     return (
-        <Card>
+        <Card color='olive' >
           <Image src={this.props.currentUser.badge} wrapped ui={false} />
           <Card.Content>
             <Card.Header>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</Card.Header>
@@ -20,7 +20,7 @@ class CurrentUserContainer extends Component {
               {this.props.currentUser.bio}
             </Card.Description>
           </Card.Content>
-          <Card.Content extra>
+          <Card.Content fluid extra>
               <Icon name='user' />
               {this.props.currentUser.email}
           </Card.Content>

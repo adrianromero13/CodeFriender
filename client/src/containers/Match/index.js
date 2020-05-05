@@ -3,7 +3,7 @@ import axios from 'axios';
 // import { Form, Input, TextArea, Button, Select, Container, Grid } from 'semantic-ui-react';
 
 import UserProfile from '../../components/UserProfile';
-import { Grid } from 'semantic-ui-react';
+import { Grid, Header } from 'semantic-ui-react';
 
 
 class Match extends Component {
@@ -67,25 +67,31 @@ class Match extends Component {
 
     render() {
         return (
-            <Grid columns='three'>
+            <Grid columns='four'>
                 <Grid.Row >
                     {/* currentUser Profile Card */}
-                    <UserProfile user={this.state.currentUser} />
+                    <UserProfile color={'olive'} user={this.state.currentUser} />
                 </Grid.Row>
                 <Grid.Row columns={3}>
                     {/* map bestMatches from state */}
-                    <h1>Best Matches</h1>
-                    {this.state.bestMatches.length && this.state.bestMatches.map((user,idx) => <UserProfile user={user} key={idx} />)}
+                    <Header>Best Matches</Header>
+                    <div>
+                    {this.state.bestMatches.length && this.state.bestMatches.map((user,idx) => <UserProfile color={'red'} user={user} key={idx} />)}
+                    </div>
                 </Grid.Row>
                 <Grid.Row columns={3}>
                     {/* map mtchesForThem from state */}
-                    <h1>Best Matches For Them</h1>
-                    {this.state.matchesForThem.length && this.state.matchesForThem.map((user,idx) => <UserProfile user={user} key={idx} />)}
+                    <div>
+                    <Header>Best Matches For Them</Header>
+                    {this.state.matchesForThem.length && this.state.matchesForThem.map((user,idx) => <UserProfile color={'purple'} user={user} key={idx} />)}
+                    </div>
                 </Grid.Row>
                 <Grid.Row columns={3}>
                     {/* map mtchesForMe from state */}
-                    <h1>Best Matches For Me</h1>
-                    {this.state.matchesForMe.length && this.state.matchesForMe.map((user,idx) => <UserProfile user={user} key={idx} />)}
+                    <div>
+                    <Header>Best Matches For Me</Header>
+                    {this.state.matchesForMe.length && this.state.matchesForMe.map((user,idx) => <UserProfile color={'teal'} user={user} key={idx} />)}
+                    </div>
                 </Grid.Row>
             </Grid>
 
