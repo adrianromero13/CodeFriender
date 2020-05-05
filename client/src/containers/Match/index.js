@@ -74,8 +74,8 @@ class Match extends Component {
                 </Grid.Row>
                 <Grid.Row columns={3}>
                     {/* map bestMatches from state */}
-                    <Header>Best Matches</Header>
                     <div>
+                    <Header>Best Matches</Header>
                     {this.state.bestMatches.length && this.state.bestMatches.map((user,idx) => <UserProfile color={'red'} user={user} key={idx} />)}
                     </div>
                 </Grid.Row>

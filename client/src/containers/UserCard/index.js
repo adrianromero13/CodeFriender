@@ -13,6 +13,7 @@ class UserCard extends Component {
     currentUser: [],
     allUsers: [],
   }
+ 
 
 
   async componentDidMount() {
@@ -34,39 +35,42 @@ class UserCard extends Component {
   contextRef = createRef()
   render() {
     return (
-      <Container fluid>
-
-        <Grid centered columns={2} >
-          {/* <Ref innerRef={this.contextRef}> */}
-          <Segment.Group>
-            <Responsive as={Segment}>
-
-
-              <Grid.Column width={12}>
-                <Card.Group centered itemsPerRow={6}>
-                  {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
-                    <CFUsersComponent codeFrienderUsers={CodeFrienderUsers} />
-                  )
-                  )}
-                </Card.Group>
-              </Grid.Column>
+      <Container padded>
+        <Segment.Inline>
+          <Grid  columns={2} >
+            <Ref innerRef={this.contextRef}>
+              <Segment.Group>
+                <Responsive as={Segment}>
 
 
+                  <Grid.Column width={10}>
+                    <Card.Group centered itemsPerRow={3}>
+                      {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
+                        <CFUsersComponent codeFrienderUsers={CodeFrienderUsers} />
+                      )
+                      )}
+                    </Card.Group>
+                  </Grid.Column>
 
-              {/* <Rail position='left'> */}
-              {/* <Sticky context={this.contextRef} pushing> */}
 
-              <Grid.Column width={4} >
 
-                {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
+                  <Rail position='left'>
+                    <Sticky context={this.contextRef} pushing>
+                      <Container>
 
-              </Grid.Column>
-              {/* </Sticky>
-            </Rail> */}
-            </Responsive>
-          </Segment.Group>
-          {/* </Ref> */}
-        </Grid>
+                      <Grid.Column width={6}>
+                        {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
+                      </Grid.Column>
+                      </Container>
+                    </Sticky>
+                  </Rail>
+
+                </Responsive>
+              </Segment.Group>
+            </Ref>
+          </Grid>
+
+        </Segment.Inline>
       </Container>
     )
   }

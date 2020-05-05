@@ -16,17 +16,17 @@ module.exports = {
   insertUser: async (req, res) => {
     console.log('he shoots...he scores!!!!');
     try {
-      let gitData = await axios.get(`https://api.github.com/users/${req.body.github}`)
+      let gitData = await axios.get(`https://api.github.com/users/${req.body.github}`);
       console.log(gitData);
 
       let userValues = [req.body.firstName,
-      req.body.lastName,
-      req.body.strength,
-      req.body.weakness,
-      req.body.bio,
-      req.body.email,
-      req.body.github,
-      gitData.data.avatar_url];
+        req.body.lastName,
+        req.body.strength,
+        req.body.weakness,
+        req.body.bio,
+        req.body.email,
+        req.body.github,
+        gitData.data.avatar_url];
 
       console.log(userValues);
 

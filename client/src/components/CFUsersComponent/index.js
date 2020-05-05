@@ -9,7 +9,7 @@ class CFUsersComponent extends Component {
 
         return (
             
-                <Card fluid key={this.props.codeFrienderUsers.id}>
+                <Card  color={'red'}  key={this.props.codeFrienderUsers.id}>
                     <Image src={this.props.codeFrienderUsers.badge} wrapped ui={false} />
                     <Card.Content>
                         <Card.Header>{this.props.codeFrienderUsers.first_name} {this.props.codeFrienderUsers.last_name}</Card.Header>

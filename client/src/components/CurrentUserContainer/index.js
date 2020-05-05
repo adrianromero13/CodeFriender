@@ -20,7 +20,7 @@ class CurrentUserContainer extends Component {
               {this.props.currentUser.bio}
             </Card.Description>
           </Card.Content>
-          <Card.Content fluid extra>
+          <Card.Content  extra>
               <Icon name='user' />
               {this.props.currentUser.email}
           </Card.Content>
