@@ -35,7 +35,7 @@ class UserCard extends Component {
   contextRef = createRef()
   render() {
     return (
-      <Container padded>
+      <Container text>
         <Segment.Inline>
           <Grid  columns={2} >
             <Ref innerRef={this.contextRef}>
