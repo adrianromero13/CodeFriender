@@ -5,7 +5,7 @@ CREATE DATABASE developer_db;
 
 USE developer_db;
 
-CREATE TABLE ucbxusers (
+CREATE TABLE ucbxUsers (
 id INTEGER NOT NULL AUTO_INCREMENT,
 first_name VARCHAR (50) NOT NULL,
 last_name VARCHAR (50) NOT NULL,
