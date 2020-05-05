@@ -35,12 +35,13 @@ module.exports = {
           if (insertErr) {
             throw insertErr;
           }
-          connection.query(ucbxQueries.getUserByGithub, req.body.github, (err, currentUser) => {
-            if (err) {
-              throw err;
-            }
-            return res.json(currentUser);
-          });
+          // connection.query(ucbxQueries., req.body.github, (err, currentUser) => {
+          //   if (err) {
+          //     throw err;
+          //   }
+          //   return res.json(currentUser);
+          // });
+          return res.json({ success: true });
           // console.log(ucbxusers);
         });
     } catch (e) {
