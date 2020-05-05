@@ -4,7 +4,7 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 function UserProfile(props) {
     return (
       <div>
-        <Card>
+        <Card color={props.color}>
           <Image src={props.user.badge} wrapped ui={false} />
           <Card.Content>
             <Card.Header>{props.user.first_name} {props.user.last_name}</Card.Header>
