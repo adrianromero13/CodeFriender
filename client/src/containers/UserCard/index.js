@@ -1,11 +1,11 @@
 import React, { Component, createRef } from 'react';
 import axios from 'axios';
-import { Grid, Container, Responsive, Sticky, Rail, Ref, Segment, Card, Icon, Image } from 'semantic-ui-react';
+import { Grid, Container, Responsive, Sticky, Rail, Ref, Segment, Card, Icon, Image, Header } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
-import CurrentUserContainer from '../../components/CurrentUserContainer';
-import CFUsersComponent from '../../components/CFUsersComponent';
+import CurrentUserContainer from '../../components/CurrentUserCard';
+import CFUsersComponent from '../../components/CodeFriendersCard';
 
 class UserCard extends Component {
   state = {
@@ -36,8 +36,7 @@ class UserCard extends Component {
   render() {
     return (
       <Container text>
-        <Segment.Inline>
-          <Grid  columns={2} >
+          <Grid  centered columns={2} >
             <Ref innerRef={this.contextRef}>
               <Segment.Group>
                 <Responsive as={Segment}>
@@ -53,11 +52,11 @@ class UserCard extends Component {
                   </Grid.Column>
 
 
+                        
 
-                  <Rail position='left'>
+                  <Rail attached size='mini' position='left' >
                     <Sticky context={this.contextRef} pushing>
                       <Container>
-
                       <Grid.Column width={6}>
                         {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
                       </Grid.Column>
@@ -65,12 +64,12 @@ class UserCard extends Component {
                     </Sticky>
                   </Rail>
 
+        
                 </Responsive>
               </Segment.Group>
             </Ref>
           </Grid>
 
-        </Segment.Inline>
       </Container>
     )
   }

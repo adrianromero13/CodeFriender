@@ -2,10 +2,9 @@ import React from "react";
 import { BrowserRouter as Router, Route } from 'react-router-dom';
 
 import Banner from '../../containers/Banner';
-import UserForm from './../UserForm';
+import UserForm from './../../containers/UserForm';
 import UserCard from '../../containers/UserCard';
 import Match from "../../containers/Match";
-
 
 
 const App = props => (
@@ -17,4 +16,5 @@ const App = props => (
     {/* <Footer/> */}
   </Router>
 );
+
 export default App;

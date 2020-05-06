@@ -3,7 +3,6 @@ import { Card, Icon, Image } from 'semantic-ui-react';
 
 function UserProfile(props) {
     return (
-      <div>
         <Card color={props.color}>
           <Image src={props.user.badge} wrapped ui={false} />
           <Card.Content>
@@ -22,7 +21,6 @@ function UserProfile(props) {
               {props.user.email}
           </Card.Content>
         </Card>
-      </div>
     )
 };
 
