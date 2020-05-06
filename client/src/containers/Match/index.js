@@ -3,7 +3,8 @@ import axios from 'axios';
 // import { Form, Input, TextArea, Button, Select, Container, Grid } from 'semantic-ui-react';
 
 import UserProfile from '../../components/UserProfile';
-import { Grid, Header } from 'semantic-ui-react';
+import { Grid, Header, Container } from 'semantic-ui-react';
+import SideBarProfile from '../../components/SideBarProfile';
 
 
 class Match extends Component {
@@ -67,11 +68,11 @@ class Match extends Component {
 
     render() {
         return (
-            <Grid columns='four'>
-                <Grid.Row >
+            <Container >
                     {/* currentUser Profile Card */}
                     <UserProfile color={'olive'} user={this.state.currentUser} />
-                </Grid.Row>
+
+            <Grid columns='four'>
                 <Grid.Row columns={3}>
                     {/* map bestMatches from state */}
                     <div>
@@ -94,6 +95,8 @@ class Match extends Component {
                     </div>
                 </Grid.Row>
             </Grid>
+
+            </Container>
 
         )
     }
