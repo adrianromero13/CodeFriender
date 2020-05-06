@@ -65,7 +65,7 @@ class UserForm extends Component {
     console.log("I happened");
     console.log(this.state);
     // The second parameter to this post request is going to become req.body
-     axios.post('/api/ucbxusers', {
+    axios.post('/api/ucbxusers', {
       firstName: this.state.firstName,
       lastName: this.state.lastName,
       strength: this.state.strength,
@@ -95,90 +95,98 @@ class UserForm extends Component {
 
   render() {
     return (
-      <Grid columns={2} divided>
-        <Grid.Column>
-          <Container textAlign="justified">
-            <Form>
-              <Form.Group widths='equal'>
+      <Container text >
+
+            <Container textAlign="justified">
+              <Form>
+                <Form.Group widths='equal'>
+                  <Form.Field
+                    id='form-input-control-first-name'
+                    control={Input}
+                    label='First name'
+                    placeholder='First name'
+                    onChange={this.handleInputChange}
+                    value={this.state.firstName}
+                    name='firstName'
+                  />
+                  <Form.Field
+                    id='form-input-control-last-name'
+                    control={Input}
+                    label='Last name'
+                    placeholder='Last name'
+                    onChange={this.handleInputChange}
+                    value={this.state.lastName}
+                    name='lastName'
+                  />
+                </Form.Group>
+                <Form.Group>
+                  <Form.Field
+                    control={Select}
+                    options={Strength1}
+                    label={{ children: 'Strength', htmlFor: 'form-select-control-strength' }}
+                    placeholder='Strength'
+                    search
+                    searchInput={{ id: 'form-select-control-strength' }}
+                    value={this.state.strength}
+                    onChange={this.handleInputChange}
+                    name='strength'
+                  />
+                  <Form.Field
+                    control={Select}
+                    options={Weakness1}
+                    label={{ children: 'Weakness', htmlFor: 'form-select-control-weakness' }}
+                    placeholder='Weakness'
+                    search
+                    searchInput={{ id: 'form-select-control-weakness' }}
+                    value={this.state.weakness}
+                    onChange={this.handleInputChange}
+                    name='weakness'
+                  />
+                </Form.Group>
+
                 <Form.Field
-                  id='form-input-control-first-name'
-                  control={Input}
-                  label='First name'
-                  placeholder='First name'
+                  id='form-textarea-control-bio'
+                  name="bio"
+                  control={TextArea}
+                  label='Bio'
+                  placeholder='Write a short description'
                   onChange={this.handleInputChange}
-                  value={this.state.firstName}
-                  name='firstName'
+                  value={this.state.bio}
                 />
-                <Form.Field
-                  id='form-input-control-last-name'
-                  control={Input}
-                  label='Last name'
-                  placeholder='Last name'
-                  onChange={this.handleInputChange}
-                  value={this.state.lastName}
-                  name='lastName'
-                />
-                <Form.Field
-                  control={Select}
-                  options={Strength1}
-                  label={{ children: 'Strength', htmlFor: 'form-select-control-strength' }}
-                  placeholder='Strength'
-                  search
-                  searchInput={{ id: 'form-select-control-strength' }}
-                  value={this.state.strength}
-                  onChange={this.handleInputChange}
-                  name='strength'
-                />
-                <Form.Field
-                  control={Select}
-                  options={Weakness1}
-                  label={{ children: 'Weakness', htmlFor: 'form-select-control-weakness' }}
-                  placeholder='Weakness'
-                  search
-                  searchInput={{ id: 'form-select-control-weakness' }}
-                  value={this.state.weakness}
-                  onChange={this.handleInputChange}
-                  name='weakness'
-                />
-              </Form.Group>
-              <Form.Field
-                id='form-textarea-control-bio'
-                name="bio"
-                control={TextArea}
-                label='Bio'
-                placeholder='Write a short description'
-                onChange={this.handleInputChange}
-                value={this.state.bio}
-              />
-              <Form.Field
-                id='form-input-control-error-email'
-                control={Input}
-                label='Email'
-                placeholder='joey@fullstack.com'
-                onChange={this.handleInputChange}
-                value={this.state.email}
-                name='email'
-              />
-              <Form.Field
-                id='form-input-control-error-github'
-                control={Input}
-                label='Github Username'
-                placeholder='janey123'
-                onChange={this.handleInputChange}
-                value={this.state.github}
-                name='github'
-              />
-              <Form.Field
-                id='form-button-control-public'
-                control={Button}
-                content='Submit'
-                label='Click to Submit'
-                onClick={this.handleSubmit}
-              />
-            </Form>
-          </Container>
-        </Grid.Column>
-      </Grid>
+                <Form.Group>
+                  <Form.Field
+                    id='form-input-control-error-email'
+                    control={Input}
+                    label='Email'
+                    placeholder='joey@fullstack.com'
+                    onChange={this.handleInputChange}
+                    value={this.state.email}
+                    name='email'
+                  />
+                  <Form.Field
+                    id='form-input-control-error-github'
+                    control={Input}
+                    label='Github Username'
+                    placeholder='janey123'
+                    onChange={this.handleInputChange}
+                    value={this.state.github}
+                    name='github'
+                  />
+                </Form.Group>
+                <Grid>
+                  <Grid.Column textAlign="center">
+                    <Form.Field
+                      id='form-button-control-public'
+                      control={Button}
+                      content='Submit'
+                      label='Click to Submit'
+                      onClick={this.handleSubmit}
+                    />
+                  </Grid.Column>
+                </Grid>
+              </Form>
+            </Container>
+      </Container>
     )
   };
 };
