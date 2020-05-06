@@ -1,8 +1,9 @@
 import React from 'react';
-import { Card, Icon, Image } from 'semantic-ui-react';
+import { Card, Icon, Image, Grid } from 'semantic-ui-react';
 
 function UserProfile(props) {
     return (
+      <Grid.Column width={5}>
         <Card color={props.color}>
           <Image src={props.user.badge} wrapped ui={false} />
           <Card.Content>
@@ -21,6 +22,7 @@ function UserProfile(props) {
               {props.user.email}
           </Card.Content>
         </Card>
+      </Grid.Column>
     )
 };
 
