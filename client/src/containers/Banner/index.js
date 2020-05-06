@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
-import { Menu } from 'semantic-ui-react'
 import { Link } from 'react-router-dom'
+import { Menu, Header, Container, Icon} from 'semantic-ui-react'
 
 export default class Banner extends Component {
   state = { activeItem: 'home' }
@@ -11,33 +11,39 @@ export default class Banner extends Component {
     const { activeItem } = this.state
 
     return (
-      <Menu inverted>
-        <h3 className="ui block header center">
-          Code Friender
-</h3>
-       <Link to="/">
-        <Menu.Item
-          name='home'
-          // active={activeItem === 'home'}
-          // onClick={this.handleItemClick}
-          
-        />
+      <Container fluid>
+
+      <Menu inverted size='large'>
+        <Header as="h3" inverted >
+        <Icon name='code branch'/>
+        <Header.Content>
+           Code Friender
+          <Header.Subheader>Mentor | Collaborate | Apprentice</Header.Subheader>
+        </Header.Content>
+        </Header>
+        <Link to="/">
+          <Menu.Item
+            name='home'
+            active={activeItem === 'home'}
+            onClick={this.handleItemClick}
+          />
         </Link>
         <Link to="/match">
-        <Menu.Item
-          name='Match'
-          // active={activeItem === 'match'}
-          // onClick={this.handleItemClick}
-        />
+          <Menu.Item
+            name='match'
+            active={activeItem === 'match'}
+            onClick={this.handleItemClick}
+            />
         </Link>
-        <Link to ="/profile">
-        <Menu.Item
-          name='All Profiles'
-          // active={activeItem === 'allProfiles'}
-          // onClick={this.handleItemClick}
-        />
+        <Link to="/profile">
+          <Menu.Item
+            name='allProfiles'
+            active={activeItem === 'allProfiles'}
+            onClick={this.handleItemClick}
+            />
         </Link>
       </Menu>
+            </Container>
     )
   }
 }
