@@ -68,7 +68,7 @@ class Match extends Component {
         return (
             <Container>
                 {/* currentUser Profile Card */}
-                <Grid Columns={2}>
+                <Grid columns={2}>
                     <Grid.Column width={6}>
                         <UserProfile color={'olive'} user={this.state.currentUser} />
                     </Grid.Column>
