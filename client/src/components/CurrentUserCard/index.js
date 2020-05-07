@@ -7,10 +7,9 @@ class CurrentUserContainer extends Component {
 
   render() {
     return (
-      <Container>
-        <br />
-        <Header as='h3' icon><Icon name='user circle' />User Profile</Header>
-        <Card color='olive' >
+      // <Container>
+        // {/* <Header as='h3' icon><Icon name='user circle' />User Profile</Header> */}
+        <Card centered color='olive' >
           <Image src={this.props.currentUser.badge} wrapped ui={false} />
           <Card.Content>
             <Card.Header>{this.props.currentUser.first_name} {this.props.currentUser.last_name}</Card.Header>
@@ -28,7 +27,7 @@ class CurrentUserContainer extends Component {
             {this.props.currentUser.email}
           </Card.Content>
         </Card>
-      </Container>
+      // </Container>
     )
   }
 };
