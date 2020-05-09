@@ -72,7 +72,7 @@ class Match extends Component {
                         <Grid.Column width={4}>
                             <UserProfile color={'olive'} user={this.state.currentUser} />
                         </Grid.Column>
-                        <Grid.Column textAlign='center'>
+                        <Grid.Column width={12} textAlign='center'>
                             <Grid centered>
                                 <Header>Best Matches</Header>
                                 <Grid.Row columns={3}>

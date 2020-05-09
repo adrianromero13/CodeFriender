@@ -1,8 +1,7 @@
-import React, { Component, createRef } from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
-import { Grid, Container, Responsive, Sticky, Rail, Ref, Segment, Card, Icon, Image, Header } from 'semantic-ui-react';
+import { Grid, Container, Responsive, Segment, Card } from 'semantic-ui-react';
 import { withRouter } from 'react-router-dom';
-import _ from 'lodash';
 
 import CurrentUserCard from '../../components/CurrentUserCard';
 import CodeFriendersCard from '../../components/CodeFriendersCard';
@@ -13,6 +12,7 @@ class UserCard extends Component {
     user: [],
     currentUser: [],
     allUsers: [],
+    itemNumber: [],
   }
 
 
@@ -33,87 +33,66 @@ class UserCard extends Component {
     }
   }
 
-  contextRef = createRef()
+  handleOnUpdate = (e, { width }) => this.setState({ itemNumber: width })
+  
+
   render() {
+
+
+
+    // here
+
+
+    const { width } = this.state
+    const itemsPerRow =
+      width >= Responsive.onlyComputer.minWidth ? '2' : '3'
+      console.log(this.state.itemNumber)
     return (
-<Container>
+      <Container>
 
-      <Grid columns={2}>
-        <AllProfileHeader/>
+        <Grid columns={2}>
+          <AllProfileHeader />
 
+        </Grid>
         <Grid.Row>
+          <Grid columns={2}>
 
-          <Grid.Column width={4}>
-            <Responsive minWidth={768}>
-            {this.state.currentUser.length && <CurrentUserCard currentUser={this.state.currentUser[0]} />}
-            </Responsive>
-          </Grid.Column>
+            <Grid.Column width={4}>
+              <Responsive minWidth={768}>
+                {this.state.currentUser.length && <CurrentUserCard currentUser={this.state.currentUser[0]} />}
+              </Responsive>
+            </Grid.Column>
 
-          <Grid.Column>
-            {/* <Grid> */}
-              <Card.Group stackable itemsPerRow={3}>
+            <Grid.Column width={12}>
+              {/* <Grid> */}
+
+
+
+
+              {/* here */}
+
+
+              
+              <Responsive
+              fireOnMount
+              onUpdate={this.handleOnUpdate}
+              >
+
+              <Card.Group fluid  itemsPerRow={itemsPerRow}>
 
                 {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
                   <CodeFriendersCard codeFrienderUsers={CodeFrienderUsers} />
                   )
                   )}
-                  </Card.Group>
-            {/* </Grid> */}
-          </Grid.Column>
+              </Card.Group>
+                  </Responsive>
+              {/* </Grid> */}
+            </Grid.Column>
 
+
+          </Grid>
         </Grid.Row>
-
-      </Grid>
-                  </Container>
-
-
-      // <Container text>
-
-      //   {/* <Grid centered columns={2} > */}
-      //     <Ref innerRef={this.contextRef}>
-
-      //       <Segment.Group>
-      //         <Responsive as={Segment}>
-
-      //           {/* here */}
-      //           <Grid.Column>
-      //             <Grid.Row columns={3}>
-      //               {/* <Card.Group centered itemsPerRow={3}> */}
-      // {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
-      //   <CodeFriendersCard codeFrienderUsers={CodeFrienderUsers} />
-      //   )
-      //   )}
-      //               {/* </Card.Group> */}
-      //             </Grid.Row>
-      //           </Grid.Column>
-
-
-
-
-      //           <Rail attached close size='mini' position='left' >
-      //             <Sticky context={this.contextRef} pushing>
-      //               <Container>
-      //                 <Grid.Column width={6}>
-      //                   {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
-      //                 </Grid.Column>
-      //               </Container>
-      //             </Sticky>
-      //           </Rail>
-
-
-      //         </Responsive>
-      //       </Segment.Group>
-      //     </Ref>
-      //   {/* </Grid> */}
-
-      // </Container>
-
-
-
-
-
-
-
+      </Container>
     )
   }
 }
