@@ -5,7 +5,7 @@ import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
 import CurrentUserContainer from '../../components/CurrentUserCard';
-import CFUsersComponent from '../../components/CodeFriendersCard';
+import CodeFriendersCard from '../../components/CodeFriendersCard';
 
 class UserCard extends Component {
   state = {
@@ -13,7 +13,7 @@ class UserCard extends Component {
     currentUser: [],
     allUsers: [],
   }
- 
+
 
 
   async componentDidMount() {
@@ -35,47 +35,90 @@ class UserCard extends Component {
   contextRef = createRef()
   render() {
     return (
-      <Container text>
-          <Grid  centered columns={2} >
-            <Ref innerRef={this.contextRef}>
-              <Segment.Group>
-                <Responsive as={Segment}>
+
+      <Grid columns={2}>
+        <Grid.Row>
+
+          <Grid.Column>
+            <Header as='h3' icon textAlign='center'><Icon name='user circle' />User Profile</Header>
+          </Grid.Column>
+          <Grid.Column>
+            <Header as='h3' icon textAlign='center'><Icon name='users circle' />Code Frienders</Header>
+          </Grid.Column>
+        </Grid.Row>
+
+        <Grid.Row>
+
+          <Grid.Column>
+            {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
+          </Grid.Column>
+
+          <Grid.Column>
+            <Grid columns='three'>
+              <Grid.Row columns={3}>
+                {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
+                  <CodeFriendersCard codeFrienderUsers={CodeFrienderUsers} />
+                )
+                )}
+              </Grid.Row>
+            </Grid>
+          </Grid.Column>
+
+        </Grid.Row>
+
+      </Grid>
 
 
-                  <Grid.Column width={10}>
-                    <Card.Group centered itemsPerRow={3}>
-                      {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
-                        <CFUsersComponent codeFrienderUsers={CodeFrienderUsers} />
-                      )
-                      )}
-                    </Card.Group>
-                  </Grid.Column>
+      // <Container text>
+
+      //   {/* <Grid centered columns={2} > */}
+      //     <Ref innerRef={this.contextRef}>
+
+      //       <Segment.Group>
+      //         <Responsive as={Segment}>
+
+      //           {/* here */}
+      //           <Grid.Column>
+      //             <Grid.Row columns={3}>
+      //               {/* <Card.Group centered itemsPerRow={3}> */}
+      // {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
+      //   <CodeFriendersCard codeFrienderUsers={CodeFrienderUsers} />
+      //   )
+      //   )}
+      //               {/* </Card.Group> */}
+      //             </Grid.Row>
+      //           </Grid.Column>
 
 
-                        
 
-                  <Rail attached size='mini' position='left' >
-                    <Sticky context={this.contextRef} pushing>
-                      <Container>
-                      <Grid.Column width={6}>
-                        {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
-                      </Grid.Column>
-                      </Container>
-                    </Sticky>
-                  </Rail>
 
-        
-                </Responsive>
-              </Segment.Group>
-            </Ref>
-          </Grid>
+      //           <Rail attached close size='mini' position='left' >
+      //             <Sticky context={this.contextRef} pushing>
+      //               <Container>
+      //                 <Grid.Column width={6}>
+      //                   {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
+      //                 </Grid.Column>
+      //               </Container>
+      //             </Sticky>
+      //           </Rail>
 
-      </Container>
+
+      //         </Responsive>
+      //       </Segment.Group>
+      //     </Ref>
+      //   {/* </Grid> */}
+
+      // </Container>
+
+
+
+
+
+
+
     )
   }
 }
 
 
 export default withRouter(UserCard);
-
-

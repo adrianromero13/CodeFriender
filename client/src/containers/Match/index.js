@@ -6,7 +6,6 @@ import UserProfile from '../../components/UserProfile';
 import { Grid, Header, Container } from 'semantic-ui-react';
 import SideBarProfile from '../../components/SideBarProfile';
 
-
 class Match extends Component {
     state = {
         currentUser: {},
@@ -55,7 +54,6 @@ class Match extends Component {
         }
     }
 
-
     getMatchesForMe = async (currentUser) => {
         try {
             console.log(currentUser)
@@ -68,36 +66,32 @@ class Match extends Component {
 
     render() {
         return (
-            <Container >
-                    {/* currentUser Profile Card */}
-                    <UserProfile color={'olive'} user={this.state.currentUser} />
-
-            <Grid columns='four'>
-                <Grid.Row columns={3}>
-                    {/* map bestMatches from state */}
-                    <div>
+            <Container>
+                {/* currentUser Profile Card */}
+                <Grid columns={2}>
+                    <Grid.Column width={6}>
+                        <UserProfile color={'olive'} user={this.state.currentUser} />
+                    </Grid.Column>
+                </Grid>
+                {/* Add Title header for components in Grid */}
+                <Grid columns='four'>
                     <Header>Best Matches</Header>
-                    {this.state.bestMatches.length && this.state.bestMatches.map((user,idx) => <UserProfile color={'red'} user={user} key={idx} />)}
-                    </div>
-                </Grid.Row>
-                <Grid.Row columns={3}>
-                    {/* map mtchesForThem from state */}
-                    <div>
+                    <Grid.Row columns={3}>
+                        {/* map bestMatches from state */}
+                        {this.state.bestMatches.length && this.state.bestMatches.map((user, idx) => <UserProfile color={'red'} user={user} key={idx} />)}
+                    </Grid.Row>
                     <Header>Best Matches For Them</Header>
-                    {this.state.matchesForThem.length && this.state.matchesForThem.map((user,idx) => <UserProfile color={'purple'} user={user} key={idx} />)}
-                    </div>
-                </Grid.Row>
-                <Grid.Row columns={3}>
-                    {/* map mtchesForMe from state */}
-                    <div>
+                    <Grid.Row columns={3}>
+                        {/* map mtchesForThem from state */}
+                        {this.state.matchesForThem.length && this.state.matchesForThem.map((user, idx) => <UserProfile color={'purple'} user={user} key={idx} />)}
+                    </Grid.Row>
                     <Header>Best Matches For Me</Header>
-                    {this.state.matchesForMe.length && this.state.matchesForMe.map((user,idx) => <UserProfile color={'teal'} user={user} key={idx} />)}
-                    </div>
-                </Grid.Row>
-            </Grid>
-
+                    <Grid.Row columns={3}>
+                        {/* map mtchesForMe from state */}
+                        {this.state.matchesForMe.length && this.state.matchesForMe.map((user, idx) => <UserProfile color={'teal'} user={user} key={idx} />)}
+                    </Grid.Row>
+                </Grid>
             </Container>
-
         )
     }
 }
