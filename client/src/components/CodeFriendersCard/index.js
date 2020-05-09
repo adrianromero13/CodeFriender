@@ -1,13 +1,12 @@
 import React, { Component } from 'react';
-import { Grid, Card, Icon, Image, Container } from 'semantic-ui-react';
+import { Card, Icon, Image } from 'semantic-ui-react';
 
 import _ from 'lodash';
 
 class CFUsersComponent extends Component {
     render() {
         return (
-            <Grid.Column>
-                    <Card color={'red'} key={this.props.codeFrienderUsers.id}>
+                    <Card centered color={'red'} key={this.props.codeFrienderUsers.id}>
                         <Image src={this.props.codeFrienderUsers.badge} wrapped ui={false} />
                         <Card.Content>
                             <Card.Header>{this.props.codeFrienderUsers.first_name} {this.props.codeFrienderUsers.last_name}</Card.Header>
@@ -27,7 +26,6 @@ class CFUsersComponent extends Component {
                             </a>
                         </Card.Content>
                     </Card>
-                </Grid.Column>
         )
     }
 };

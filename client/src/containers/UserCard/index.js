@@ -4,8 +4,9 @@ import { Grid, Container, Responsive, Sticky, Rail, Ref, Segment, Card, Icon, Im
 import { withRouter } from 'react-router-dom';
 import _ from 'lodash';
 
-import CurrentUserContainer from '../../components/CurrentUserCard';
+import CurrentUserCard from '../../components/CurrentUserCard';
 import CodeFriendersCard from '../../components/CodeFriendersCard';
+import AllProfileHeader from '../../components/AllProfileHeader';
 
 class UserCard extends Component {
   state = {
@@ -35,38 +36,35 @@ class UserCard extends Component {
   contextRef = createRef()
   render() {
     return (
+<Container>
 
       <Grid columns={2}>
-        <Grid.Row>
-
-          <Grid.Column>
-            <Header as='h3' icon textAlign='center'><Icon name='user circle' />User Profile</Header>
-          </Grid.Column>
-          <Grid.Column>
-            <Header as='h3' icon textAlign='center'><Icon name='users circle' />Code Frienders</Header>
-          </Grid.Column>
-        </Grid.Row>
+        <AllProfileHeader/>
 
         <Grid.Row>
 
-          <Grid.Column>
-            {this.state.currentUser.length && <CurrentUserContainer currentUser={this.state.currentUser[0]} />}
+          <Grid.Column width={4}>
+            <Responsive minWidth={768}>
+            {this.state.currentUser.length && <CurrentUserCard currentUser={this.state.currentUser[0]} />}
+            </Responsive>
           </Grid.Column>
 
           <Grid.Column>
-            <Grid columns='three'>
-              <Grid.Row columns={3}>
+            {/* <Grid> */}
+              <Card.Group stackable itemsPerRow={3}>
+
                 {this.state.allUsers.length && this.state.allUsers.slice(0, this.state.allUsers.length - 1).map(CodeFrienderUsers => (
                   <CodeFriendersCard codeFrienderUsers={CodeFrienderUsers} />
-                )
-                )}
-              </Grid.Row>
-            </Grid>
+                  )
+                  )}
+                  </Card.Group>
+            {/* </Grid> */}
           </Grid.Column>
 
         </Grid.Row>
 
       </Grid>
+                  </Container>
 
 
       // <Container text>
